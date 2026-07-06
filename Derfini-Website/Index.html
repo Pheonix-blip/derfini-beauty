@@ -170,8 +170,8 @@ tailwind.config = {
 <!-- MOBILE MENU -->
 <div id="mobileMenu" class="hidden fixed top-0 right-0 h-full w-[70%] md:w-[300px] bg-[#333333]/80 backdrop-blur-lg z-50 shadow-2xl flex flex-col p-6 transition-all duration-300">
 
-  <nav class="flex flex-col mt-12 space-y-6 text-white">
-    <a href="#home" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">HOME</a>
+  <nav class="flex flex-col mt-20 space-y-6 text-white">
+    <a href="#home" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors text-white">HOME</a>
     <a href="#about" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">ABOUT</a>
     <a href="#services" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">SERVICES</a>
     <a href="#gallery" onclick="toggleMenu()" class="text-lg tracking-widest text-gold">GALLERY</a>
@@ -217,28 +217,20 @@ tailwind.config = {
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+<section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden px-4">
   <div class="hero-overlay absolute inset-0"></div>
-  <!-- Floating decorative -->
-  <div class="float-anim absolute top-1/4 right-10 w-32 h-32 rounded-full border border-gold/20 hidden md:block"></div>
-  <div class="float-anim absolute bottom-1/4 left-10 w-20 h-20 rounded-full border border-gold/10 hidden md:block" style="animation-delay:1s"></div>
-
-  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-   <p class="hero-text section-eyebrow mb-2 pt-2">Warri's Luxury Beauty Destination</p>
-    <h1 class="pt-12 text-cream font-serif text-5xl md:text-7xl lg:text-8xl font-light">
+  
+  <div class="relative z-10 text-center w-full max-w-lg mx-auto">
+    <p class="section-eyebrow mb-2 pt-2 text-gold">Luxury Beauty & Spa Experience in Warri</p>
+    <h1 class="text-cream font-serif text-4xl md:text-7xl font-light leading-tight">
       Luxury Hair,<br><em class="text-gold">Beauty & Spa</em><br>Experience
     </h1>
-<p class="hero-text-delay2 text-cream/70 text-sm md:text-base my-8 leading-loose tracking-wide">
-  Braids &nbsp; • &nbsp; Knotless &nbsp; • &nbsp; Lash Extensions &nbsp; • &nbsp; Brows &nbsp; • &nbsp; Spa &nbsp; • &nbsp; Facials &nbsp; • &nbsp; Massage
-</p>
-    <div class="hero-text-delay2 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#booking" class="px-8 py-4 bg-gold text-dark-bg text-xs tracking-widest uppercase font-medium hover:bg-gold-light transition-all">Book Appointment</a>
-      <a href="#services" class="px-8 py-4 border border-cream/40 text-cream text-xs tracking-widest uppercase hover:border-gold hover:text-gold transition-all">View Services</a>
-    </div>
-    <!-- Scroll indicator -->
-    <div class="mt-16 flex flex-col items-center gap-2 animate-bounce">
-      <p class="text-cream/40 text-xs tracking-widest uppercase">Scroll</p>
-      <div class="w-px h-10 bg-gradient-to-b from-gold to-transparent"></div>
+    <p class="text-cream/70 text-sm md:text-base my-6 leading-relaxed">
+      Braids • Knotless • Lash Extensions • Brows • Spa • Facials • Massage
+    </p>
+    <div class="flex flex-col gap-3">
+      <a href="#booking" class="px-6 py-3 bg-gold text-dark-bg uppercase font-medium text-xs tracking-widest">Book Appointment</a>
+      <a href="#services" class="px-6 py-3 border border-cream/40 text-cream uppercase text-xs tracking-widest">View Services</a>
     </div>
   </div>
 </section>
