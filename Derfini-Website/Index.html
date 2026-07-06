@@ -1,0 +1,1069 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Derfini Beauty – Salon & Spa. Luxury hair, beauty & spa experience in Warri, Nigeria. Braids, knotless, lash extensions, spa treatments, facials and more.">
+<meta name="keywords" content="hair salon Warri, beauty spa Warri, knotless braids Warri, lash extensions Warri, Derfini Beauty">
+<title>Derfini Beauty – Salon & Spa | Warri, Nigeria</title>
+
+<!-- Add your favicon here -->
+  <link rel="icon" type="image/png" href="derfini-logo.png">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- AOS Animation Library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        'gold-light': '#E8D5A3',
+        'gold-dark': '#8B6A1F',
+        cream: '#FAF6F0',
+        beige: '#F2EBE0',
+        'warm-nude': '#E8D5C0',
+        'soft-brown': '#8B6347',
+        'dark-bg': '#0F0E0C',
+        'dark2': '#1A1916',
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        display: ['Playfair Display', 'serif'],
+        sans: ['DM Sans', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #FAF6F0; color: #1a1a1a; overflow-x: hidden; }
+
+  /* Scroll progress bar */
+  #progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, #C9A84C, #E8D5A3); z-index: 9999; transition: width 0.1s; }
+
+  /* Navbar */
+  .navbar { transition: all 0.4s ease; }
+  .navbar.scrolled { background: rgba(15,14,12,0.95) !important; backdrop-filter: blur(12px); box-shadow: 0 2px 30px rgba(0,0,0,0.3); }
+  .navbar.scrolled .nav-link { color: #FAF6F0 !important; }
+  .navbar.scrolled .nav-logo { color: #C9A84C !important; }
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A84C; transition: width 0.3s; }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  /* Hero */
+  .hero-bg { background: url('hero.jpeg') center/cover no-repeat; }
+  .hero-overlay { background: linear-gradient(135deg, rgba(15,14,12,0.75) 0%, rgba(139,106,31,0.3) 100%); }
+  .hero-text { animation: fadeInUp 1.2s ease forwards; opacity: 0; }
+  .hero-text-delay { animation: fadeInUp 1.2s ease 0.4s forwards; opacity: 0; }
+  .hero-text-delay2 { animation: fadeInUp 1.2s ease 0.8s forwards; opacity: 0; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Floating badge */
+  .float-anim { animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  /* Gold line divider */
+  .gold-line { width: 50px; height: 1px; background: #C9A84C; display: inline-block; }
+  .gold-line-lg { width: 80px; height: 1px; background: #C9A84C; display: inline-block; }
+
+  /* Service card */
+  .service-card { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(201,168,76,0.2); }
+  .service-card:hover .card-img { transform: scale(1.05); }
+  .card-img { transition: transform 0.6s ease; }
+
+  /* Gallery */
+  .gallery-item { overflow: hidden; position: relative; }
+  .gallery-item img { transition: transform 0.6s ease; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(201,168,76,0.0); transition: background 0.3s; display: flex; align-items: center; justify-content: center; }
+  .gallery-item:hover .gallery-overlay { background: rgba(201,168,76,0.15); }
+
+  /* Pricing cards */
+  .price-card { border: 0.5px solid rgba(201,168,76,0.2); transition: all 0.3s ease; background: white; }
+  .price-card:hover { border-color: #C9A84C; transform: translateY(-4px); box-shadow: 0 15px 40px rgba(201,168,76,0.15); }
+  .price-row { border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+  .price-row:last-child { border: none; }
+
+  /* Booking form */
+  .form-input { background: white; border: 1px solid rgba(201,168,76,0.3); transition: all 0.3s; outline: none; }
+  .form-input:focus { border-color: #C9A84C; box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+
+  /* Before/After */
+  .ba-slider { position: relative; overflow: hidden; }
+  .ba-before { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; }
+  .ba-before img, .ba-after img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ba-divider { position: absolute; top: 0; left: 50%; height: 100%; width: 2px; background: #C9A84C; z-index: 10; }
+  .ba-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 40px; height: 40px; border-radius: 50%; background: #C9A84C; display: flex; align-items: center; justify-content: center; z-index: 11; color: white; font-size: 14px; cursor: ew-resize; }
+
+  /* Testimonial carousel */
+  .testimonial-track { display: flex; transition: transform 0.5s ease; }
+
+  /* WhatsApp button */
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
+
+  /* Back to top */
+  .back-top { position: fixed; bottom: 90px; right: 24px; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .back-top.visible { opacity: 1; pointer-events: all; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #FAF6F0; }
+  ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 2px; }
+
+  /* Mobile nav */
+  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(15,14,12,0.97); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #FAF6F0; text-decoration: none; letter-spacing: 0.15em; transition: color 0.2s; }
+  .mobile-menu a:hover { color: #C9A84C; }
+
+  /* Loading */
+  #loader { position: fixed; inset: 0; background: #0F0E0C; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s; }
+  #loader.hidden { opacity: 0; pointer-events: none; }
+  .loader-logo { animation: fadeInUp 0.8s ease forwards; }
+
+  /* Blog card */
+  .blog-card { transition: all 0.3s ease; }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .blog-card:hover .blog-img { transform: scale(1.05); }
+  .blog-img { transition: transform 0.5s ease; }
+
+  /* Section titles */
+  .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: #C9A84C; }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (min-width: 769px) {
+    .hamburger { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo text-center">
+    <img src="derfini-logo.png.jpeg" alt="Derfini Beauty" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+    <p class="text-gold font-serif text-2xl tracking-widest">Derfini Beauty</p>
+    <p class="text-cream/60 text-xs tracking-widest mt-1">SALON & SPA</p>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar" style="width:0%"></div>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden fixed top-0 right-0 h-full w-[70%] md:w-[300px] bg-[#333333]/80 backdrop-blur-lg z-50 shadow-2xl flex flex-col p-6 transition-all duration-300">
+  
+  <button type="button" onclick="toggleMenu()" class="absolute top-4 right-4 text-white p-2">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <nav class="flex flex-col mt-12 space-y-6 text-white">
+    <a href="#home" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">HOME</a>
+    <a href="#about" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">ABOUT</a>
+    <a href="#services" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">SERVICES</a>
+    <a href="#gallery" onclick="toggleMenu()" class="text-lg tracking-widest text-gold">GALLERY</a>
+    <a href="#pricing" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">PRICING</a>
+    <a href="#contact" onclick="toggleMenu(); openContactModal()" class="text-lg tracking-widest hover:text-gold transition-colors">CONTACT</a>
+    
+    <a href="#booking" onclick="toggleMenu()" class="bg-[#c5a059] text-black text-center py-3 text-sm font-bold tracking-widest hover:bg-white transition-colors mt-2">
+      BOOK NOW
+    </a>
+  </nav>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between">
+  
+  <!-- Logo & Text -->
+  <div class="flex items-center gap-3">
+    <img src="derfini-logo.png" alt="Derfini Beauty Logo" class="h-10 w-10 object-contain">
+    <div>
+      <p class="font-serif text-cream text-base tracking-wider leading-tight">Derfini Beauty</p>
+      <p class="text-cream/50 text-xs tracking-widest">SALON & SPA</p>
+    </div>
+  </div>
+
+  <!-- Desktop Links (Hidden on mobile) -->
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#home" class="text-white hover:text-gold text-sm tracking-widest uppercase">Home</a>
+    <a href="#about" class="text-white hover:text-gold text-sm tracking-widest uppercase">About</a>
+    <a href="#services" class="text-white hover:text-gold text-sm tracking-widest uppercase">Services</a>
+    <a href="#gallery" class="text-white hover:text-gold text-sm tracking-widest uppercase">Gallery</a>
+    <a href="#pricing" class="text-white hover:text-gold text-sm tracking-widest uppercase">Pricing</a>
+    <a href="#booking" class="border border-gold text-gold px-6 py-2 ml-6 hover:bg-gold hover:text-dark-bg transition-colors uppercase tracking-widest text-sm">
+  BOOK NOW
+</a>
+  </div>
+
+  <!-- Mobile Hamburger Icon (Visible on mobile only) -->
+  <button type="button" onclick="toggleMenu()" class="block md:hidden text-white p-4 z-[50] relative">
+  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+  <div class="hero-overlay absolute inset-0"></div>
+  <!-- Floating decorative -->
+  <div class="float-anim absolute top-1/4 right-10 w-32 h-32 rounded-full border border-gold/20 hidden md:block"></div>
+  <div class="float-anim absolute bottom-1/4 left-10 w-20 h-20 rounded-full border border-gold/10 hidden md:block" style="animation-delay:1s"></div>
+
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+   <p class="hero-text section-eyebrow mb-2 pt-2">Warri's Luxury Beauty Destination</p>
+    <h1 class="pt-12 text-cream font-serif text-5xl md:text-7xl lg:text-8xl font-light">
+      Luxury Hair,<br><em class="text-gold">Beauty & Spa</em><br>Experience
+    </h1>
+    <p class="hero-text-delay2 text-cream/70 text-sm md:text-base tracking-wide mb-10 max-w-lg mx-auto leading-relaxed">
+      Braids · Knotless · Lash Extensions · Brows · Spa · Facials · Massage<br>
+      151 Jakpa Road, Effurun, Warri
+    </p>
+    <div class="hero-text-delay2 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#booking" class="px-8 py-4 bg-gold text-dark-bg text-xs tracking-widest uppercase font-medium hover:bg-gold-light transition-all">Book Appointment</a>
+      <a href="#services" class="px-8 py-4 border border-cream/40 text-cream text-xs tracking-widest uppercase hover:border-gold hover:text-gold transition-all">View Services</a>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="mt-16 flex flex-col items-center gap-2 animate-bounce">
+      <p class="text-cream/40 text-xs tracking-widest uppercase">Scroll</p>
+      <div class="w-px h-10 bg-gradient-to-b from-gold to-transparent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="bg-gold py-3 overflow-hidden">
+  <div class="flex gap-16 animate-marquee whitespace-nowrap" style="animation: marquee 20s linear infinite">
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Hair Styling</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Knotless Braids</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Lash Extensions</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Brow Treatments</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Swedish Massage</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Luxury Facials</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Chemical Peel</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Ghana Weaving</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Hair Styling</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Knotless Braids</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Lash Extensions</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Brow Treatments</span>
+  </div>
+</div>
+<style>@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }</style>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 md:px-12 bg-cream">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <div data-aos="fade-right" data-aos-duration="1000">
+      <div class="relative">
+        <img src="WhatsApp Image 2026-05-20 at 9.45.02 PM (1).jpeg" alt="Derfini Beauty Client" class="w-full h-[500px] md:h-[600px] object-cover object-center">
+        <div class="absolute -bottom-6 -right-6 bg-gold p-6 text-dark-bg text-center hidden md:block">
+          <p class="font-serif text-3xl font-light">4.8★</p>
+          <p class="text-xs tracking-widest uppercase mt-1">Google Rating</p>
+        </div>
+        <div class="absolute -top-4 -left-4 border border-gold/30 w-full h-full rounded-sm hidden md:block" style="z-index:-1"></div>
+      </div>
+    </div>
+    <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+      <p class="section-eyebrow mb-4">Our Story</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light leading-tight mb-6">
+        Beauty is more than<br>a service — it is an <em class="text-gold">experience</em>
+      </h2>
+      <div class="gold-line mb-8"></div>
+      <p class="text-gray-600 leading-relaxed mb-6 text-sm">At Derfini Beauty, we believe every woman deserves to look and feel extraordinary. Located at 151 Jakpa Road, Effurun, Warri, we are more than a salon — we are your personal beauty sanctuary.</p>
+      <p class="text-gray-600 leading-relaxed mb-8 text-sm">From precision braids and knotless extensions to luxury spa treatments and lash perfection, our expert team delivers world-class beauty services in an environment that feels as good as you look.</p>
+      <div class="grid grid-cols-3 gap-6 py-8 border-t border-gold/20">
+        <div><p class="font-serif text-3xl text-gold font-light">4.8★</p><p class="text-xs text-gray-500 tracking-widest uppercase mt-1">Google Rating</p></div>
+        <div><p class="font-serif text-3xl text-gold font-light">49+</p><p class="text-xs text-gray-500 tracking-widest uppercase mt-1">Reviews</p></div>
+        <div><p class="font-serif text-3xl text-gold font-light">10+</p><p class="text-xs text-gray-500 tracking-widest uppercase mt-1">Services</p></div>
+      </div>
+      <a href="#booking" class="inline-block px-8 py-3 bg-dark-bg text-cream text-xs tracking-widest uppercase hover:bg-gold hover:text-dark-bg transition-all">Book Your Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 px-6 md:px-12 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">What We Offer</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light mb-4">Our <em class="text-gold">Signature</em> Services</h2>
+      <div class="gold-line-lg mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Hair -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+        <div class="overflow-hidden h-56"><img src="WhatsApp Image 2026-05-20 at 9.44.53 PM.jpeg" alt="Hair Styling" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">01</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Hair Styling & Braids</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Natural braids, knotless braids, Ghana weaving, kinky twist, box braids and more — crafted to perfection.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">From ₦2,000</p>
+        </div>
+      </div>
+
+     <!-- Wigs -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="overflow-hidden h-56"><img src="WhatsApp Image 2026-05-20 at 9.45.01 PM.jpeg" alt="Wig Installation" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">02</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Wig Installation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Flawless lace front and full wig installations — wavy, curly, straight. Premium human hair available.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">Custom Pricing</p>
+        </div>
+      </div>
+
+      <!-- Lash -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="overflow-hidden h-56"><img src="Lash.jpg" alt="Lash Extensions" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">03</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Lash Extensions</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Classic, Hybrid, Volume, and Mega Volume lash sets applied with precision for a flawless, lasting finish.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">From ₦12,000</p>
+        </div>
+      </div>
+
+      <!-- Brows -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+        <div class="overflow-hidden h-56"><img src="Brow treatment.jpg" alt="Brow Treatments" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">04</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Brow Treatments</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Microblading, microshading, brow lamination, combo brows and retouching for perfectly defined brows.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">From ₦1,000</p>
+        </div>
+      </div>
+
+     <!-- Spa -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="overflow-hidden h-56"><img src="Spa.jpeg" alt="Spa Treatments" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">05</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Spa & Massage</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Swedish massage, deep tissue, and full body treatments — pure relaxation in a luxury environment.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">From ₦35,000</p>
+        </div>
+      </div>
+
+     <!-- Facials -->
+      <div class="service-card bg-cream rounded-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="overflow-hidden h-56"><img src="Facial.jpg" alt="Facial Treatments" class="card-img w-full h-full object-cover object-center"></div>
+        <div class="p-6">
+          <p class="section-eyebrow mb-2">06</p>
+          <h3 class="font-serif text-2xl font-light mb-3">Facial Treatments</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Basic, deep cleanse, brightening, dermaplaning, microneedling and chemical peel facials.</p>
+          <p class="text-gold text-xs tracking-widest uppercase">From ₦35,000</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24 px-6 md:px-12 bg-dark-bg">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">Our Work</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-cream mb-4">Beauty in <em class="text-gold">Every Detail</em></h2>
+      <div class="gold-line-lg mx-auto"></div>
+    </div>
+    
+    <!-- Masonry grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <!-- 1st Image (Large Feature) -->
+      <div class="gallery-item col-span-2 row-span-2 rounded-sm" style="height:420px" data-aos="zoom-in" data-aos-delay="0">
+        <img src="grid1.jpeg" alt="Hair transformation" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 2nd Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="100">
+        <img src="grid2.jpeg" alt="Hairstyle" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 3rd Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="150">
+        <img src="grid3.jpeg" alt="Hair work" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 4th Image -->
+      <div class="gallery-item rounded-sm" style="height:210px" data-aos="zoom-in" data-aos-delay="200">
+        <img src="grid4.jpeg" alt="Wig" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 5th Image -->
+      <div class="gallery-item rounded-sm" style="height:210px" data-aos="zoom-in" data-aos-delay="250">
+        <img src="grid5.jpeg" alt="Hair style" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 6th Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="300">
+        <img src="grid6.jpeg" alt="Hair" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 7th Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="350">
+        <img src="grid7.jpeg" alt="Curly hair" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 8th Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="400">
+        <img src="grid8.jpeg" alt="Wig install" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+      <!-- 9th Image -->
+      <div class="gallery-item rounded-sm" style="height:200px" data-aos="zoom-in" data-aos-delay="450">
+        <img src="grid9.jpeg" alt="Hair style" class="object-cover object-center w-full h-full block">
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-10">
+      <a href="https://instagram.com/derfinibeauty" target="_blank" class="inline-block px-8 py-3 border border-gold text-gold text-xs tracking-widest uppercase hover:bg-gold hover:text-dark-bg transition-all">See More on Instagram @derfinibeauty</a>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE & AFTER -->
+<section class="py-24 px-6 md:px-12 bg-cream">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">Transformations</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light mb-4">The <em class="text-gold">Derfini Effect</em></h2>
+      <div class="gold-line-lg mx-auto mb-4"></div>
+      <p class="text-gray-500 text-sm max-w-md mx-auto">Real clients. Real transformations. Hover or tap the images to see the difference our expert stylists make.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+    <!-- Card 1: Facial Treatment -->
+      <div class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="0">
+        <!-- Interactive Image Area -->
+        <div class="relative group h-72 overflow-hidden cursor-pointer">
+          <!-- After Image (Stays in the background) -->
+          <img src="Before (2).jpeg" alt="After Facial" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+          
+          <!-- Before Image (Swipes away to the left on hover) -->
+          <img src="Before (1).jpeg" alt="Before Facial" class="absolute inset-0 w-full h-full object-cover object-center z-10 transition-all duration-700 ease-in-out [clip-path:inset(0_0_0_0)] group-hover:[clip-path:inset(0_100%_0_0)]">
+          
+          <!-- Badges -->
+          <span class="absolute top-4 left-4 bg-dark-bg/80 text-cream px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 group-hover:opacity-0 backdrop-blur-sm">Before</span>
+          <span class="absolute top-4 right-4 bg-gold text-dark-bg font-medium px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 opacity-0 group-hover:opacity-100 shadow-lg">After</span>
+        </div>
+        <div class="p-5 border-t border-gold/10">
+          <p class="font-serif text-xl text-center">Facial Treatment</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Wig Install -->
+<div class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+  <div class="relative group h-72 overflow-hidden cursor-pointer">
+    <!-- After Image (Background) -->
+    <img src="After Wig.PNG" alt="After Wig" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+    <!-- Before Image (Swipes away) -->
+    <img src="Before Wig.PNG" alt="Before Wig" class="absolute inset-0 w-full h-full object-cover object-center z-10 transition-all duration-700 ease-in-out [clip-path:inset(0_0_0_0)] group-hover:[clip-path:inset(0_100%_0_0)]">
+    
+    <span class="absolute top-4 left-4 bg-dark-bg/80 text-cream px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 group-hover:opacity-0 backdrop-blur-sm">Before</span>
+    <span class="absolute top-4 right-4 bg-gold text-dark-bg font-medium px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 opacity-0 group-hover:opacity-100 shadow-lg">After</span>
+  </div>
+  <div class="p-5 border-t border-gold/10">
+    <p class="font-serif text-xl text-center">Wig Install</p>
+  </div>
+</div>
+
+<!-- Card 3: Nail Transformation -->
+<div class="bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+  <div class="relative group h-72 overflow-hidden cursor-pointer">
+    <!-- After Image (Background) -->
+    <img src="Nail After.PNG" alt="After Nails" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+    <!-- Before Image (Swipes away) -->
+    <img src="Nail Before.PNG" alt="Before Nails" class="absolute inset-0 w-full h-full object-cover object-center z-10 transition-all duration-700 ease-in-out [clip-path:inset(0_0_0_0)] group-hover:[clip-path:inset(0_100%_0_0)]">
+    
+    <span class="absolute top-4 left-4 bg-dark-bg/80 text-cream px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 group-hover:opacity-0 backdrop-blur-sm">Before</span>
+    <span class="absolute top-4 right-4 bg-gold text-dark-bg font-medium px-3 py-1 text-xs tracking-widest uppercase rounded-sm z-20 transition-opacity duration-700 opacity-0 group-hover:opacity-100 shadow-lg">After</span>
+  </div>
+  <div class="p-5 border-t border-gold/10">
+    <p class="font-serif text-xl text-center">Nail Transformation</p>
+  </div>
+</div>
+</section>
+
+<!-- PRICE LIST TABS SECTION -->
+ <!-- PRICING -->
+<section id="pricing" class="py-24 px-6 md:px-12 bg-white">
+<section class="py-20 px-6 md:px-12 bg-cream">
+  <div class="max-w-4xl mx-auto">
+    
+    <!-- Tab Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button onclick="showTab('hair')" class="px-6 py-3 border border-gold bg-gold text-dark-bg text-sm uppercase tracking-widest transition-all">Hair & Braids</button>
+      <button onclick="showTab('lashes')" class="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-dark-bg text-sm uppercase tracking-widest transition-all">Lash Extensions</button>
+      <button onclick="showTab('brows')" class="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-dark-bg text-sm uppercase tracking-widest transition-all">Brows</button>
+      <button onclick="showTab('spa')" class="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-dark-bg text-sm uppercase tracking-widest transition-all">Spa & Facials</button>
+      <button onclick="showTab('nails')" class="border border-gold text-gold hover:bg-gold hover:text-dark-bg px-6 py-3 transition-colors">
+  NAILS
+</button>
+    </div>
+
+    <!-- Tab Content Containers -->
+    <div id="price-content">
+      
+      <!-- Hair Content -->
+      <div id="hair" class="tab-content">
+        <h2 class="text-2xl font-serif mb-6 text-center">Hair & Braids</h2>
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+      <!-- General Hair Care -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Hair Care & Treatments</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Hair Retouching</span> <span>₦4,000</span></li>
+          <li class="flex justify-between"><span>Retouching + Relaxer</span> <span>₦7,000</span></li>
+          <li class="flex justify-between"><span>Blow Dry / Straightening</span> <span>₦5,000</span></li>
+          <li class="flex justify-between"><span>Trimming</span> <span>₦5,000</span></li>
+          <li class="flex justify-between"><span>Deep Conditioning Treatment</span> <span>₦25,000</span></li>
+          <li class="flex justify-between"><span>Hot Oil Treatment</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Itchy/Dandruff Treatment</span> <span>₦15,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Natural Styling -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Natural Styling</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Corn Rows (Washed)</span> <span>₦8,000</span></li>
+          <li class="flex justify-between"><span>Mini Corn Rows</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Finger Coils</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Natural Twist</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Twist with Mini Corn Rows</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Flat Twist</span> <span>₦10,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Braids -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Braids</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Big Braid</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Mini Braids</span> <span>₦25,000</span></li>
+          <li class="flex justify-between"><span>Kinky Twist (Short)</span> <span>₦8,000</span></li>
+          <li class="flex justify-between"><span>Kinky Twist (Long)</span> <span>₦20,000</span></li>
+          <li class="flex justify-between"><span>Boho Braids</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Weaving + Boho Braids</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Knotless Braid (Short)</span> <span>₦12,000</span></li>
+          <li class="flex justify-between"><span>Knotless Braid (Medium)</span> <span>₦18,000</span></li>
+          <li class="flex justify-between"><span>Knotless Braid (Long)</span> <span>₦20,000</span></li>
+          <li class="flex justify-between"><span>Big Box Braid</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Stitch Braids (6 cut)</span> <span>₦8,000</span></li>
+          <li class="flex justify-between"><span>Stitch Braids (Small cut)</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Pony Tail</span> <span>₦10,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Weaving & Maintenance -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Weaving & Installation</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Ghana Weaving (Big)</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Ghana Weaving (Medium)</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Ghana Weaving (Small)</span> <span>₦20,000</span></li>
+          <li class="flex justify-between"><span>Sew-in (Weavon)</span> <span>₦20,000</span></li>
+          <li class="flex justify-between"><span>Frontal Installation</span> <span>₦30,000</span></li>
+          <li class="flex justify-between"><span>Styling</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Layering</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Hair Revamping</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Hair Wigging</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Extension Loosening (Weavon)</span> <span>₦4,000</span></li>
+          <li class="flex justify-between"><span>Extension Loosening (Braids)</span> <span>₦8,500</span></li>
+          <li class="flex justify-between"><span>Cornrow Loosening</span> <span>₦4,000</span></li>
+        </ul>
+      </div>
+    </div>
+      </div>
+
+      <!-- Lashes Content -->
+      <div id="lashes" class="tab-content hidden">
+        <h2 class="text-2xl font-serif mb-6 text-center">Eye Lash Extensions</h2>
+        <div class="space-y-8">
+      <!-- Lash Sets -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Lash Sets</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Classic</span> <span>₦12,000</span></li>
+          <li class="flex justify-between"><span>Hybrid</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Volume</span> <span>₦18,000</span></li>
+          <li class="flex justify-between"><span>Mega Volume</span> <span>₦23,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Add-ons -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Extra</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Cat Eye Style</span> <span>₦3,000</span></li>
+          <li class="flex justify-between"><span>Lash Refilling</span> <span>₦5,000</span></li>
+        </ul>
+      </div>
+    </div>
+      </div>
+
+      <!-- Brows Content -->
+      <div id="brows" class="tab-content hidden">
+        <h2 class="text-2xl font-serif mb-6 text-center">Brow Treatments</h2>
+        <div class="space-y-8">
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Brow Services</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Combo Brows</span> <span>₦40,000</span></li>
+          <li class="flex justify-between"><span>Brow Lamination</span> <span>₦20,000</span></li>
+          <li class="flex justify-between"><span>Brow Retouching</span> <span>₦20,000+</span></li>
+          <li class="flex justify-between"><span>Natural Brow Shaving</span> <span>₦1,000</span></li>
+          <li class="flex justify-between"><span>Micro Shading / Ombre</span> <span>₦30,000</span></li>
+          <li class="flex justify-between"><span>Microblading / Micro Strokes</span> <span>₦35,000</span></li>
+        </ul>
+      </div>
+    </div>
+      </div>
+
+      <!-- Spa Content -->
+      <div id="spa" class="tab-content hidden">
+        <h2 class="text-2xl font-serif mb-6 text-center">Spa & Facials</h2>
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
+      <!-- Massage -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Massage Therapy</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Swedish Massage</span> <span>₦35,000</span></li>
+          <li class="flex justify-between"><span>Deep Tissue Massage</span> <span>₦40,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Facials -->
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-4">Facial Treatments</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Deep Cleansing Facial</span> <span>₦40,000</span></li>
+          <li class="flex justify-between"><span>Skin Revive (Collagen Induction)</span> <span>₦65,000</span></li>
+          <li class="flex justify-between"><span>Oxygen Facial</span> <span>₦45,000</span></li>
+          <li class="flex justify-between"><span>Dermaplaning</span> <span>₦45,000</span></li>
+          <li class="flex justify-between"><span>Microneedling</span> <span>₦85,000</span></li>
+          <li class="flex justify-between"><span>Chemical Peel</span> <span>₦150,000 - ₦350,000</span></li>
+        </ul>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+      
+
+      <!-- Nail Content -->
+      <div id="nails" class="tab-content hidden">
+        <h2 class="text-2xl font-serif mb-6 text-center">Nails</h2>
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-6">Natural Styling</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Spa Manicure</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Spa Pedicure</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Acrylic (Short)</span> <span>₦10,000</span></li>
+          <li class="flex justify-between"><span>Acrylic (Medium)</span> <span>₦15,000</span></li>
+          <li class="flex justify-between"><span>Acrylic (Long)</span> <span>₦20,000</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-gold font-medium uppercase tracking-widest text-xs mb-6">Natural Styling</h3>
+        <ul class="space-y-3 text-sm text-gray-600">
+          <li class="flex justify-between"><span>Gel Polish</span> <span>₦3,000</span></li>
+          <li class="flex justify-between"><span>Gel (Natural)</span> <span>₦4,000</span></li>
+          <li class="flex justify-between"><span>Gel (Short)</span> <span>₦8,000</span></li>
+          <li class="flex justify-between"><span>Gel (Medium)</span> <span>₦12,000</span></li>
+          <li class="flex justify-between"><span>Gel (Long)</span> <span>₦15,000</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 px-6 md:px-12 bg-dark2" style="background:#1A1916">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">Client Love</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-cream mb-4">What Our Clients <em class="text-gold">Say</em></h2>
+      <div class="gold-line-lg mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-dark-bg border border-gold/10 p-8 rounded-sm relative" data-aos="fade-up" data-aos-delay="0">
+        <p class="font-serif text-5xl text-gold/20 absolute top-4 left-6">"</p>
+        <div class="text-gold text-xs tracking-widest mb-4 mt-4">★★★★★</div>
+        <p class="text-cream/70 text-sm leading-relaxed mb-6 italic">Best salon experience in Warri! My knotless braids were done perfectly. The environment is so clean and the staff are super professional. Will always come back!</p>
+        <p class="text-cream text-xs tracking-widest uppercase">Happy Client, Warri</p>
+      </div>
+      <div class="bg-dark-bg border border-gold/10 p-8 rounded-sm relative" data-aos="fade-up" data-aos-delay="100">
+        <p class="font-serif text-5xl text-gold/20 absolute top-4 left-6">"</p>
+        <div class="text-gold text-xs tracking-widest mb-4 mt-4">★★★★★</div>
+        <p class="text-cream/70 text-sm leading-relaxed mb-6 italic">My lash extensions were flawless and lasted so long. The Mega Volume set is worth every naira. Derfini Beauty is absolutely premium — luxury treatment from start to finish.</p>
+        <p class="text-cream text-xs tracking-widest uppercase">Google Review</p>
+      </div>
+      <div class="bg-dark-bg border border-gold/10 p-8 rounded-sm relative" data-aos="fade-up" data-aos-delay="200">
+        <p class="font-serif text-5xl text-gold/20 absolute top-4 left-6">"</p>
+        <div class="text-gold text-xs tracking-widest mb-4 mt-4">★★★★★</div>
+        <p class="text-cream/70 text-sm leading-relaxed mb-6 italic">I got the brightening facial and my skin has never looked this good. The staff take their time with each client and it really shows. Derfini is in a class of its own in Warri!</p>
+        <p class="text-cream text-xs tracking-widest uppercase">Satisfied Client</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking" class="py-24 px-6 md:px-12 relative overflow-hidden" style="background:#0F0E0C">
+  <div class="absolute inset-0 opacity-10" style="background:url('db-hero1.jpeg') center/cover; filter:brightness(0.3)"></div>
+  <div class="max-w-2xl mx-auto relative z-10">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">Reserve Your Spot</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-cream mb-4">Book Your <em class="text-gold">Appointment</em></h2>
+      <div class="gold-line-lg mx-auto mb-4"></div>
+      <p class="text-cream/50 text-sm">Fill the form below or WhatsApp us directly on 08101357204</p>
+    </div>
+    <div class="bg-white/5 border border-gold/20 p-8 md:p-12 rounded-sm backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">Full Name</label>
+          <input type="text" placeholder="Your name" class="form-input w-full px-4 py-3 text-sm rounded-sm text-gray-800">
+        </div>
+        <div>
+          <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">Phone Number</label>
+          <input type="tel" placeholder="08XXXXXXXXX" class="form-input w-full px-4 py-3 text-sm rounded-sm text-gray-800">
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">Email Address</label>
+          <input type="email" placeholder="your@email.com" class="form-input w-full px-4 py-3 text-sm rounded-sm text-gray-800">
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">Service</label>
+          <<select name="service" class="form-input w-full px-4 py-3 text-sm rounded text-black bg-white" required>
+  <option value="" disabled selected>Select a Service</option>
+  
+  <!-- Hair & Braids -->
+  <optgroup label="Hair Care & Treatments">
+    <option value="Hair Retouching - ₦4,000">Hair Retouching (₦4,000)</option>
+    <option value="Retouching + Relaxer - ₦7,000">Retouching + Relaxer (₦7,000)</option>
+    <option value="Blow Dry / Straightening - ₦5,000">Blow Dry / Straightening (₦5,000)</option>
+    <option value="Trimming - ₦5,000">Trimming (₦5,000)</option>
+    <option value="Deep Conditioning Treatment - ₦25,000">Deep Conditioning Treatment (₦25,000)</option>
+    <option value="Hot Oil Treatment - ₦10,000">Hot Oil Treatment (₦10,000)</option>
+    <option value="Itchy/Dandruff Treatment - ₦15,000">Itchy/Dandruff Treatment (₦15,000)</option>
+  </optgroup>
+
+  <optgroup label="Natural Styling & Weaving">
+    <option value="Corn Rows (Washed) - ₦8,000">Corn Rows (Washed) (₦8,000)</option>
+    <option value="Mini Corn Rows - ₦15,000">Mini Corn Rows (₦15,000)</option>
+    <option value="Finger Coils - ₦15,000">Finger Coils (₦15,000)</option>
+    <option value="Natural Twist - ₦10,000">Natural Twist (₦10,000)</option>
+    <option value="Twist with Mini Corn Rows - ₦15,000">Twist with Mini Corn Rows (₦15,000)</option>
+    <option value="Flat Twist - ₦10,000">Flat Twist (₦10,000)</option>
+    <option value="Ghana Weaving (Small) - ₦20,000">Ghana Weaving (Small) (₦20,000)</option>
+    <option value="Frontal Installation - ₦30,000">Frontal Installation (₦30,000)</option>
+  </optgroup>
+
+  <!-- Eye Lash Extensions -->
+  <optgroup label="Lash Extensions">
+    <option value="Classic Lash - ₦12,000">Classic Lash (₦12,000)</option>
+    <option value="Hybrid Lash - ₦15,000">Hybrid Lash (₦15,000)</option>
+    <option value="Volume Lash - ₦18,000">Volume Lash (₦18,000)</option>
+    <option value="Mega Volume Lash - ₦23,000">Mega Volume Lash (₦23,000)</option>
+  </optgroup>
+
+  <!-- Brow Treatments -->
+  <optgroup label="Brow Treatments">
+    <option value="Combo Brows - ₦40,000">Combo Brows (₦40,000)</option>
+    <option value="Brow Lamination - ₦20,000">Brow Lamination (₦20,000)</option>
+    <option value="Micro Shading / Ombre - ₦30,000">Micro Shading / Ombre (₦30,000)</option>
+    <option value="Microblading / Micro Strokes - ₦35,000">Microblading / Micro Strokes (₦35,000)</option>
+  </optgroup>
+
+  <!-- Spa & Facials -->
+  <optgroup label="Spa & Facials">
+    <option value="Swedish Massage - ₦35,000">Swedish Massage (₦35,000)</option>
+    <option value="Deep Tissue Massage - ₦40,000">Deep Tissue Massage (₦40,000)</option>
+    <option value="Deep Cleansing Facial - ₦40,000">Deep Cleansing Facial (₦40,000)</option>
+    <option value="Skin Revive (Collagen Induction) - ₦65,000">Skin Revive (₦65,000)</option>
+    <option value="Chemical Peel - ₦150k - ₦350k">Chemical Peel (₦150,000 - ₦350,000)</option>
+  </optgroup>
+
+  <!-- Nail Services -->
+<optgroup label="Nail Services">
+  <option value="Spa Manicure - ₦10,000">Spa Manicure (₦10,000)</option>
+  <option value="Spa Pedicure - ₦15,000">Spa Pedicure (₦15,000)</option>
+  <option value="Acrylic Short - ₦10,000">Acrylic Short (₦10,000)</option>
+  <option value="Acrylic Medium - ₦15,000">Acrylic Medium (₦15,000)</option>
+  <option value="Acrylic Long - ₦20,000">Acrylic Long (₦20,000)</option>
+  <option value="Gel Polish - ₦3,000">Gel Polish (₦3,000)</option>
+  <option value="Gel Natural - ₦4,000">Gel Natural (₦4,000)</option>
+  <option value="Gel Short - ₦8,000">Gel Short (₦8,000)</option>
+  <option value="Gel Medium - ₦12,000">Gel Medium (₦12,000)</option>
+  <option value="Gel Long - ₦15,000">Gel Long (₦15,000)</option>
+</optgroup>
+</select>
+
+<!-- DATE AND TIME SELECTION -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+  
+  <!-- PREFERRED DATE -->
+  <div>
+    <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">PREFERRED DATE</label>
+    <input type="date" class="w-full bg-white border border-gray-300 p-3 text-gray-900 rounded-sm focus:outline-none focus:border-gold">
+  </div>
+
+  <!-- PREFERRED TIME -->
+  <div>
+    <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">PREFERRED TIME</label>
+    <select class="w-full bg-white border border-gray-300 p-3 text-gray-900 rounded-sm focus:outline-none focus:border-gold">
+      <option>9:00 AM</option>
+      <option>10:00 AM</option>
+      <option>11:00 AM</option>
+      <option>12:00 PM</option>
+      <option>1:00 PM</option>
+      <option>2:00 PM</option>
+      <option>3:00 PM</option>
+      <option>4:00 PM</option>
+      <option>5:00 PM</option>
+    </select>
+  </div>
+</div>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-cream/60 text-xs tracking-widest uppercase mb-2">Additional Message</label>
+          <textarea rows="3" placeholder="Any special requests or questions..." class="form-input w-full px-4 py-3 text-sm rounded-sm text-gray-800 resize-none"></textarea>
+        </div>
+        <div class="md:col-span-2 flex flex-col sm:flex-row gap-4">
+          <button onclick="submitBooking()" class="flex-1 py-4 bg-gold text-dark-bg text-xs tracking-widest uppercase font-medium hover:bg-gold-light transition-all">Confirm Booking</button>
+          <a href="https://wa.me/2348101357204?text=Hi%20Derfini%20Beauty!%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="flex-1 py-4 border border-gold/50 text-gold text-xs tracking-widest uppercase text-center hover:bg-gold/10 transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 md:px-12 bg-beige">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="section-eyebrow mb-4">Get In Touch</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-light mb-4">Visit <em class="text-gold">Derfini Beauty</em></h2>
+      <div class="gold-line-lg mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div class="text-center p-8 bg-white rounded-sm border border-gold/10 hover:border-gold/30 transition-all" data-aos="fade-up" data-aos-delay="0">
+        <div class="w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 stroke-gold fill-none stroke-2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <p class="text-xs tracking-widest uppercase text-gold mb-3">Address</p>
+        <p class="text-sm text-gray-600 leading-relaxed">151 Jakpa Road, Opposite the New Coca Cola Depot<br>Effurun, Warri, Delta State</p>
+      </div>
+      <div class="text-center p-8 bg-white rounded-sm border border-gold/10 hover:border-gold/30 transition-all" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 stroke-gold fill-none stroke-2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.32h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+        </div>
+        <p class="text-xs tracking-widest uppercase text-gold mb-3">Phone / WhatsApp</p>
+        <p class="text-sm text-gray-600">08101357204</p>
+        <p class="text-sm text-gray-600">08066593638</p>
+        <p class="text-sm text-gray-600 mt-2">derfinibeauty@gmail.com</p>
+      </div>
+      <div class="text-center p-8 bg-white rounded-sm border border-gold/10 hover:border-gold/30 transition-all" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-12 h-12 border border-gold/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 stroke-gold fill-none stroke-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="text-xs tracking-widest uppercase text-gold mb-3">Opening Hours</p>
+        <p class="text-sm text-gray-600">Monday – Saturday</p>
+        <p class="text-sm font-medium text-gray-800">9:00 AM – 6:00 PM</p>
+        <p class="text-sm text-gray-400 mt-2">Sunday: Closed</p>
+      </div>
+    </div>
+    <!-- LIVE MAP EMBED -->
+<div class="w-full h-80 my-8 rounded-xl overflow-hidden shadow-2xl border-2 border-[#c5a059]">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.7431604104276!2d5.753303774026887!3d5.542750933758223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1041ab5e85c986c7%3A0x6b772097e88941f6!2sDerfini%20Beauty%20-%20Hair%20Salon%20and%20Spa!5e0!3m2!1sen!2sng!4v1688647558237!5m2!1sen!2sng" 
+    width="100%" 
+    height="100%" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark-bg pt-16 pb-8 px-6 md:px-12 border-t border-gold/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-6">
+          <img src="derfini-logo.png" alt="Derfini Beauty Logo" class="h-12 w-12 object-contain">
+          <div>
+            <p class="font-serif text-gold text-lg tracking-wider">Derfini Beauty</p>
+            <p class="text-cream/40 text-xs tracking-widest">SALON & SPA</p>
+          </div>
+        </div>
+        <p class="text-cream/50 text-sm leading-relaxed mb-6 max-w-sm">Luxury hair, beauty & spa experience in Warri, Nigeria. Beauty in Every Detail ♡</p>
+        <div class="flex gap-4">
+          <a href="https://instagram.com/derfinibeauty" target="_blank" class="w-9 h-9 border border-gold/20 flex items-center justify-center hover:border-gold transition-all">
+            <svg class="w-4 h-4 stroke-cream/50 fill-none stroke-2 hover:stroke-gold" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com/derfinibeauty" target="_blank" class="w-9 h-9 border border-gold/20 flex items-center justify-center hover:border-gold transition-all">
+            <svg class="w-4 h-4 stroke-cream/50 fill-none stroke-2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/2348101357204" target="_blank" class="w-9 h-9 border border-gold/20 flex items-center justify-center hover:border-gold transition-all">
+            <svg class="w-4 h-4 fill-cream/50" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="text-gold text-xs tracking-widest uppercase mb-6">Quick Links</p>
+        <ul class="space-y-3">
+          <li><a href="#home" class="text-cream/50 text-sm hover:text-gold transition-colors">Home</a></li>
+          <li><a href="#about" class="text-cream/50 text-sm hover:text-gold transition-colors">About Us</a></li>
+          <li><a href="#services" class="text-cream/50 text-sm hover:text-gold transition-colors">Services</a></li>
+          <li><a href="#gallery" class="text-cream/50 text-sm hover:text-gold transition-colors">Gallery</a></li>
+          <li><a href="#pricing" class="text-cream/50 text-sm hover:text-gold transition-colors">Pricing</a></li>
+          <li><a href="#booking" class="text-cream/50 text-sm hover:text-gold transition-colors">Book Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-gold text-xs tracking-widest uppercase mb-6">Opening Hours</p>
+        <div class="space-y-2">
+          <div class="flex justify-between"><span class="text-cream/50 text-sm">Mon – Sat</span><span class="text-cream text-sm">9am – 6pm</span></div>
+          <div class="flex justify-between"><span class="text-cream/50 text-sm">Sunday</span><span class="text-cream/30 text-sm">Closed</span></div>
+        </div>
+        <div class="mt-6">
+          <p class="text-gold text-xs tracking-widest uppercase mb-3">Newsletter</p>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="flex-1 bg-white/5 border border-gold/20 px-3 py-2 text-xs text-cream/70 rounded-l-sm outline-none focus:border-gold">
+            <button class="px-4 py-2 bg-gold text-dark-bg text-xs tracking-widest rounded-r-sm hover:bg-gold-light transition-all">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-gold/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-cream/30 text-xs">© 2026 Derfini Beauty – Salon & Spa. Warri, Nigeria. All rights reserved.</p>
+      <p class="text-cream/20 text-xs font-serif italic">Beauty in Every Detail ♡</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2348101357204?text=Hi%20Derfini%20Beauty!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="wa-float w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-400 transition-all hover:scale-110">
+  <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- BACK TO TOP -->
+<button onclick="scrollToTop()" id="backTop" class="back-top w-10 h-10 bg-gold/80 hover:bg-gold rounded-full flex items-center justify-center shadow-lg transition-all">
+  <svg class="w-4 h-4 stroke-dark-bg fill-none stroke-2" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Init AOS
+AOS.init({ duration: 800, once: true, offset: 80 });
+
+// Loader
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1200);
+});
+
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 80) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  const backTop = document.getElementById('backTop');
+  if (window.scrollY > 400) { backTop.classList.add('visible'); } else { backTop.classList.remove('visible'); }
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach(s => {
+    const top = s.offsetTop - 100;
+    const bottom = top + s.offsetHeight;
+    const link = document.querySelector(`.nav-link[href="#${s.id}"]`);
+    if (link) { if (window.scrollY >= top && window.scrollY < bottom) { link.classList.add('active'); } else { link.classList.remove('active'); } }
+  });
+});
+
+// Mobile menu
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+
+// Back to top
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// Pricing tabs
+function showTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+  document.getElementById('content-' + tab).classList.remove('hidden');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('bg-gold', 'text-dark-bg');
+    b.classList.add('border-gold/30', 'text-gray-600');
+  });
+  const activeBtn = document.getElementById('tab-' + tab);
+  activeBtn.classList.add('bg-gold', 'text-dark-bg');
+  activeBtn.classList.remove('border-gold/30', 'text-gray-600');
+}
+
+// Booking form
+function submitBooking() {
+  const name = document.querySelector('input[placeholder="Your name"]').value;
+  const phone = document.querySelector('input[placeholder="08XXXXXXXXX"]').value;
+  const service = document.querySelector('select').value;
+  if (!name || !phone || !service) { alert('Please fill in your name, phone, and select a service.'); return; }
+  const msg = encodeURIComponent(`Hi Derfini Beauty! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}`);
+  window.open(`https://wa.me/2348101357204?text=${msg}`, '_blank');
+}
+</script>
+
+<script>
+function showTab(tabId) {
+  // Hide all contents
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+  
+  // Show selected content
+  document.getElementById(tabId).classList.remove('hidden');
+  
+  // Update button styles (optional polish)
+  document.querySelectorAll('button').forEach(btn => {
+    btn.classList.remove('bg-gold', 'text-dark-bg');
+    btn.classList.add('text-gold');
+  });
+  event.target.classList.add('bg-gold', 'text-dark-bg');
+}
+</script>
+
+<!-- The Contact Modal -->
+<div id="contactModal" class="hidden fixed inset-0 z-[100] bg-black/50 flex items-center justify-center">
+  <div class="bg-white p-8 rounded-lg">
+    <h2 class="text-xl font-bold mb-4">Contact Us</h2>
+    <p>Your contact details or form go here.</p>
+    <!-- Close button to hide the modal again -->
+    <button onclick="document.getElementById('contactModal').classList.add('hidden')" class="mt-4 bg-gray-200 px-4 py-2 rounded">Close</button>
+  </div>
+</div>
+</body>
+</html>
