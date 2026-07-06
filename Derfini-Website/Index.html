@@ -130,7 +130,16 @@ tailwind.config = {
   .mobile-menu a:hover { color: #C9A84C; }
 
   /* Loading */
-  #loader { position: fixed; inset: 0; background: #0F0E0C; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s; }
+  #loader { 
+    position: fixed; 
+    inset: 0; 
+    background: #FAF6F0; /* Changed from #0F0E0C to match your cream background */
+    z-index: 10000; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: opacity 1s ease-in-out; /* Slower, smoother fade */
+  }
   #loader.hidden { opacity: 0; pointer-events: none; }
   .loader-logo { animation: fadeInUp 0.8s ease forwards; }
 
@@ -160,18 +169,6 @@ tailwind.config = {
 
 <!-- MOBILE MENU -->
 <div id="mobileMenu" class="hidden fixed top-0 right-0 h-full w-[70%] md:w-[300px] bg-[#333333]/80 backdrop-blur-lg z-50 shadow-2xl flex flex-col p-6 transition-all duration-300">
-  
-  <!-- Update your hamburger button in Header.tsx -->
-<button 
-  onClick={toggleMenu} 
-  class="md:hidden z-50 p-2 text-white hover:text-gold transition-colors"
-  aria-label="Toggle Menu"
->
-  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-  </svg>
-</button>
-  </button>
 
   <nav class="flex flex-col mt-12 space-y-6 text-white">
     <a href="#home" onclick="toggleMenu()" class="text-lg tracking-widest hover:text-gold transition-colors">HOME</a>
