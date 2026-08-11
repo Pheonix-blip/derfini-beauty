@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Derfini Beauty – Salon & Spa. Luxury hair, beauty & spa experience in Warri, Nigeria. Braids, knotless, lash extensions, spa treatments, facials and more.">
+<meta name="keywords" content="hair salon Warri, beauty spa Warri, knotless braids Warri, lash extensions Warri, Derfini Beauty">
+<title>Derfini Beauty – Salon & Spa | Warri, Nigeria</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="derfini-logo.png">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- AOS Animation Library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        'gold-light': '#E8D5A3',
+        'gold-dark': '#8B6A1F',
+        cream: '#FAF6F0',
+        beige: '#F2EBE0',
+        'warm-nude': '#E8D5C0',
+        'soft-brown': '#8B6347',
+        'dark-bg': '#0F0E0C',
+        'dark2': '#1A1916',
+        'derfini-charcoal': '#1F1B1A',
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        display: ['Playfair Display', 'serif'],
+        sans: ['DM Sans', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        btn: ['Montserrat', 'sans-serif'],
+      },
+      borderRadius: {
+        'btn': '12px',
+      }
+    }
+  }
+}
+</script>
+
+<style>
+  /* Mobile Typography & Layout Adjustments */
+  @media (max-width: 768px) {
+    /* Reduce large heading scales for small screens */
+    h1 {
+      font-size: 2.5rem !important;
+      line-height: 1.2 !important;
+    }
+    h2 {
+      font-size: 2rem !important;
+    }
+    
+    /* Add comfortable padding on mobile wrappers */
+    section {
+      padding-top: 4rem !important;
+      padding-bottom: 4rem !important;
+    }
+
+    /* Make horizontal scroll cards snap cleanly */
+    #horizontal-scroll-container {
+      scroll-snap-type: x mandatory;
+    }
+    #horizontal-scroll-container > div > div {
+      scroll-snap-align: center;
+    }
+  }
+
+  /* Smooth Mobile Menu Transitions */
+  #mobile-menu {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #FAF6F0; color: #1a1a1a; overflow-x: hidden; }
+
+  /* Scroll progress bar */
+  #progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, #C9A84C, #E8D5A3); z-index: 9999; transition: width 0.1s; }
+
+  /* Navbar */
+  .navbar { transition: all 0.4s ease; }
+  .navbar.scrolled { background: rgba(15,14,12,0.95) !important; backdrop-filter: blur(12px); box-shadow: 0 2px 30px rgba(0,0,0,0.3); }
+  .navbar.scrolled .nav-link { color: #FAF6F0 !important; }
+  .navbar.scrolled .nav-logo { color: #C9A84C !important; }
+  .nav-link { position: relative; }
+  .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A84C; transition: width 0.3s; }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  /* Hero Animations */
+  .fade-up-enter { opacity: 0; transform: translateY(40px); animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .animate-slow-zoom { animation: slowZoom 25s ease-out infinite alternate; }
+  @keyframes slowZoom { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+
+  /* Gold line divider */
+  .gold-line { width: 50px; height: 1px; background: #C9A84C; display: inline-block; }
+  .gold-line-lg { width: 80px; height: 1px; background: #C9A84C; display: inline-block; }
+
+  /* Service card */
+  .service-card { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(201,168,76,0.2); }
+  .service-card:hover .card-img { transform: scale(1.05); }
+  .card-img { transition: transform 0.6s ease; }
+
+  /* Gallery */
+  .gallery-item { overflow: hidden; position: relative; }
+  .gallery-item img { transition: transform 0.6s ease; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(201,168,76,0.0); transition: background 0.3s; display: flex; align-items: center; justify-content: center; }
+  .gallery-item:hover .gallery-overlay { background: rgba(201,168,76,0.15); }
+
+  /* Pricing cards */
+  .price-card { border: 0.5px solid rgba(201,168,76,0.2); transition: all 0.3s ease; background: white; }
+  .price-card:hover { border-color: #C9A84C; transform: translateY(-4px); box-shadow: 0 15px 40px rgba(201,168,76,0.15); }
+  .price-row { border-bottom: 0.5px solid rgba(201,168,76,0.1); }
+  .price-row:last-child { border: none; }
+
+  /* Booking form */
+  .form-input { background: white; border: 1px solid rgba(201,168,76,0.3); transition: all 0.3s; outline: none; }
+  .form-input:focus { border-color: #C9A84C; box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+
+  /* WhatsApp button */
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } }
+
+  /* Back to top */
+  .back-top { position: fixed; bottom: 90px; right: 24px; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .back-top.visible { opacity: 1; pointer-events: all; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #FAF6F0; }
+  ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 2px; }
+
+  /* Loading */
+  #loader { position: fixed; inset: 0; background: #0F0E0C; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s; }
+  #loader.hidden { opacity: 0; pointer-events: none; }
+  .loader-logo { animation: fadeInUp 0.8s ease forwards; }
+
+  /* Section titles */
+  .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: #C9A84C; }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo text-center">
+    <img src="derfini-logo.png.jpeg" alt="Derfini Beauty" class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+    <p class="text-gold font-serif text-2xl tracking-widest">Derfini Beauty</p>
+    <p class="text-cream/60 text-xs tracking-widest mt-1">SALON & SPA</p>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar" style="width:0%"></div>
+
+<!-- MOBILE MENU DRAWER -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 z-[60] w-full max-w-xs bg-[#1F1B1A] shadow-2xl transform translate-x-full flex flex-col p-8 transition-transform duration-400 ease-in-out md:hidden">
+  
+  <!-- Drawer Header with standalone X button -->
+  <div class="flex justify-between items-center mb-12">
+    <span class="font-serif text-lg tracking-widest uppercase text-[#C9A96A]">Menu</span>
+    <button onclick="toggleMobileMenu()" class="p-2 text-white focus:outline-none hover:text-[#C9A96A] transition-colors">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Drawer Links -->
+  <div class="flex flex-col gap-6 font-btn text-xs tracking-widest uppercase text-white">
+    <a href="#about" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">About Us</a>
+    <a href="#services" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">Services</a>
+    <a href="#gallery" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">Gallery</a>
+    <a href="#pricing" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">Pricing Menu</a>
+    <a href="#testimonials" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">Testimonials</a>
+    <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-[#C9A96A] transition-colors">Location</a>
+    <a href="#booking" onclick="toggleMobileMenu()" class="mt-4 py-4 bg-[#C9A96A] text-[#1F1B1A] text-center font-semibold rounded-full hover:bg-white transition-colors">Book Appointment</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between">
+  <!-- Logo & Text -->
+  <div class="flex items-center gap-3">
+    <img src="derfini-logo.png" alt="Derfini Beauty Logo" class="h-10 w-10 object-contain">
+    <div>
+      <p class="font-serif text-cream text-base tracking-wider leading-tight nav-logo">Derfini Beauty</p>
+      <p class="text-cream/50 text-xs tracking-widest">SALON & SPA</p>
+    </div>
+  </div>
+
+  <!-- Desktop Links -->
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#home" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Home</a>
+    <a href="#about" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">About</a>
+    <a href="#services" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Services</a>
+    <a href="#gallery" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Gallery</a>
+    <a href="#pricing" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Pricing</a>
+    <a href="#booking" class="bg-gold text-dark-bg font-btn font-medium px-6 py-2 ml-6 rounded-btn hover:bg-gold-light transition-colors uppercase tracking-widest text-sm shadow-sm">
+      BOOK NOW
+    </a>
+  </div>
+
+  <!-- Mobile Hamburger Icon -->
+<button type="button" onclick="toggleMobileMenu()" class="absolute right-6 top-6 focus:outline-none md:hidden text-white">
+  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="relative h-screen w-full flex items-center overflow-hidden bg-derfini-charcoal">
+  <div class="absolute inset-0 w-full h-full">
+      <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-center animate-slow-zoom" />
+      <div class="absolute inset-0 bg-gradient-to-r from-derfini-charcoal/95 via-derfini-charcoal/70 to-derfini-charcoal/30"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-20">
+      <div class="max-w-2xl text-center md:text-left">
+          <span class="block text-gold font-btn text-xs md:text-sm tracking-[0.2em] uppercase mb-6 fade-up-enter">
+              Warri's Premier Beauty Destination
+          </span>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] mb-6 tracking-wide">
+              <span class="block fade-up-enter delay-100">Refined Beauty,</span>
+              <span class="block fade-up-enter delay-200"><em class="text-gold italic">Elevated</em> Experience.</span>
+          </h1>
+          <p class="font-poppins text-white/90 text-base md:text-lg font-light leading-relaxed mb-10 max-w-lg mx-auto md:mx-0 fade-up-enter delay-300">
+              Experience premium treatments tailored to enhance your confidence and style in a relaxing, elegant environment.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center fade-up-enter delay-400">
+              <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-gold text-dark-bg font-btn text-[15px] rounded-btn hover:bg-gold-light transition-all duration-300 text-center shadow-md">
+                  Book Appointment
+              </a>
+              <a href="#services" class="w-full sm:w-auto px-8 py-4 border border-gold text-gold font-btn text-[15px] rounded-btn hover:bg-gold hover:text-dark-bg transition-all duration-300 text-center bg-transparent">
+                  Explore Services
+              </a>
+          </div>
+      </div>
+  </div>
+  
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 fade-up-enter delay-400">
+      <span class="text-[11px] tracking-widest uppercase font-btn text-white/60">Scroll</span>
+      <div class="w-[1px] h-10 bg-gradient-to-b from-gold to-transparent"></div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="bg-gold py-3 overflow-hidden">
+  <div class="flex gap-16 animate-marquee whitespace-nowrap" style="animation: marquee 20s linear infinite">
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Hair Styling</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Knotless Braids</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Lash Extensions</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Brow Treatments</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Swedish Massage</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Luxury Facials</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Chemical Peel</span>
+    <span class="text-dark-bg text-xs tracking-widest uppercase font-medium">✦ Ghana Weaving</span>
+  </div>
+</div>
+<style>@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }</style>
+
+<!-- ABOUT / FOUNDER SECTION -->
+<section id="about" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F9F4EF]">
+  <!-- Grid keeps the 50/50 column layout locked -->
+  <div class="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    
+    <!-- Left Column: Founder Image -->
+    <!-- Flex & justify-center ensures the constrained image sits perfectly in the middle of its column -->
+    <div class="flex justify-center items-center w-full h-full" data-aos="fade-right">
+      
+      <!-- w-3/4 reduces the image to 75% of the column width, adding breathing room -->
+      <div class="w-3/4 mx-auto overflow-hidden rounded-[18px] shadow-sm">
+        <!-- h-auto ensures the image scales down proportionally without any distortion -->
+        <img src="Founder.jpeg" alt="Founder of Derfini Beauty" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+
+    <!-- Right Column: Text Content (Unchanged size and positioning) -->
+    <div data-aos="fade-left" class="flex flex-col justify-center">
+      
+      <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-[#1F1B1A] mb-6 leading-tight">
+        Intentional Beauty & Absolute Luxury in Warri
+      </h2>
+      
+      <p class="font-sans text-gray-700 text-sm md:text-base font-light leading-relaxed mb-8">
+        At Derfini Beauty, we believe every woman deserves a sanctuary where she can invest in true confidence, relaxation, and self-care. Founded with a commitment to exceptional craftsmanship, we bridge the gap between world-class beauty treatments and a deeply welcoming atmosphere.
+      </p>
+
+      <div class="w-full h-[1px] bg-[#1F1B1A]/10 mb-8"></div>
+
+      <!-- 2x2 Features Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+        
+        <div>
+          <h3 class="font-serif text-xl font-medium text-[#1F1B1A] mb-2">Intentional Care</h3>
+          <p class="font-sans text-xs md:text-sm text-gray-600 font-light leading-relaxed">
+            We listen closely to your needs, providing tailored beauty services without overselling items you don't require.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-serif text-xl font-medium text-[#1F1B1A] mb-2">Expert Craftsmanship</h3>
+          <p class="font-sans text-xs md:text-sm text-gray-600 font-light leading-relaxed">
+            From intricate knotless braids to rejuvenating facials, our specialists deliver pristine, long-lasting results.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-serif text-xl font-medium text-[#1F1B1A] mb-2">Quiet Luxury</h3>
+          <p class="font-sans text-xs md:text-sm text-gray-600 font-light leading-relaxed">
+            Experience serene ambiences, soothing linens, and delicate touches that transform each visit into a gentle retreat.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-serif text-xl font-medium text-[#1F1B1A] mb-2">Uncompromised Hygiene</h3>
+          <p class="font-sans text-xs md:text-sm text-gray-600 font-light leading-relaxed">
+            Your safety and comfort come first with rigorous sanitization protocols maintained across all spa and salon stations.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US SECTION -->
+<section id="why-choose-us" class="py-24 px-6 md:px-12 lg:px-24 bg-[#D8A7B1]/15 text-[#1F1B1A]">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">Our Difference</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-4">
+        Why Choose <em class="italic text-[#C9A96A]">Derfini Beauty</em>
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4"></div>
+      <p class="font-sans text-gray-700 text-sm md:text-base max-w-xl mx-auto mt-4 font-light">
+        We combine technical mastery with genuine care to deliver an unparalleled luxury salon experience in Warri.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Feature 1 -->
+      <div class="bg-white p-8 rounded-[18px] shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group text-center space-y-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-14 h-14 mx-auto rounded-full bg-[#F9F4EF] border border-[#C9A96A]/30 flex items-center justify-center group-hover:bg-[#C9A96A] transition-colors duration-300">
+          <!-- User / Expert Icon -->
+          <svg class="w-6 h-6 stroke-[#C9A96A] group-hover:stroke-white fill-none stroke-2 transition-colors duration-300" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Expert Professionals</h3>
+        <p class="font-sans text-gray-600 text-xs md:text-sm font-light leading-relaxed">
+          Skilled stylists and wellness therapists dedicated to precision craftsmanship and tailored styling.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-white p-8 rounded-[18px] shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group text-center space-y-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-14 h-14 mx-auto rounded-full bg-[#F9F4EF] border border-[#C9A96A]/30 flex items-center justify-center group-hover:bg-[#C9A96A] transition-colors duration-300">
+          <!-- Sparkle / Premium Products Icon -->
+          <svg class="w-6 h-6 stroke-[#C9A96A] group-hover:stroke-white fill-none stroke-2 transition-colors duration-300" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Premium Products</h3>
+        <p class="font-sans text-gray-600 text-xs md:text-sm font-light leading-relaxed">
+          We use only top-tier hair care lines, organic skincare treatments, and luxury cosmetic products.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-white p-8 rounded-[18px] shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group text-center space-y-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-14 h-14 mx-auto rounded-full bg-[#F9F4EF] border border-[#C9A96A]/30 flex items-center justify-center group-hover:bg-[#C9A96A] transition-colors duration-300">
+          <!-- Shield / Hygiene Icon -->
+          <svg class="w-6 h-6 stroke-[#C9A96A] group-hover:stroke-white fill-none stroke-2 transition-colors duration-300" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Hygienic Environment</h3>
+        <p class="font-sans text-gray-600 text-xs md:text-sm font-light leading-relaxed">
+          Immaculately sanitized equipment, clean linens, and a pristine environment for your complete peace of mind.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="bg-white p-8 rounded-[18px] shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group text-center space-y-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="w-14 h-14 mx-auto rounded-full bg-[#F9F4EF] border border-[#C9A96A]/30 flex items-center justify-center group-hover:bg-[#C9A96A] transition-colors duration-300">
+          <!-- Heart / Personalized Care Icon -->
+          <svg class="w-6 h-6 stroke-[#C9A96A] group-hover:stroke-white fill-none stroke-2 transition-colors duration-300" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Personalized Care</h3>
+        <p class="font-sans text-gray-600 text-xs md:text-sm font-light leading-relaxed">
+          Every treatment is custom-tailored to suit your individual features, skin type, and lifestyle needs.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW SECTION -->
+<section id="services" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F9F4EF] text-[#1F1B1A]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">What We Offer</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-4">
+        Our <em class="italic text-[#C9A96A]">Signature</em> Services
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4 mb-8"></div>
+      
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-xs uppercase tracking-widest font-btn">
+        <button onclick="filterServices('all')" class="service-tab-btn active px-5 py-2.5 rounded-full border border-[#C9A96A] bg-[#C9A96A] text-[#1F1B1A] transition-all duration-300">All Services</button>
+        <button onclick="filterServices('hair')" class="service-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#1F1B1A] hover:border-[#C9A96A] transition-all duration-300">Hair & Braids</button>
+        <button onclick="filterServices('wigs')" class="service-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#1F1B1A] hover:border-[#C9A96A] transition-all duration-300">Wig Install</button>
+        <button onclick="filterServices('lashes')" class="service-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#1F1B1A] hover:border-[#C9A96A] transition-all duration-300">Lashes & Brows</button>
+        <button onclick="filterServices('nails')" class="service-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#1F1B1A] hover:border-[#C9A96A] transition-all duration-300">Nails</button>
+        <button onclick="filterServices('spa')" class="service-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#1F1B1A] hover:border-[#C9A96A] transition-all duration-300">Spa & Facials</button>
+      </div>
+    </div>
+
+    <!-- Services Cards Grid -->
+    <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1: Hair & Braids -->
+      <div class="service-item hair bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="100">
+        <!-- Changed to aspect-[4/3] and object-top -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="WhatsApp Image 2026-05-20 at 9.44.53 PM.jpeg" alt="Hair Styling & Braids" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Hair</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Hair Styling & Braids</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Hair styling, Natural braids, knotless braids, Ghana weaving, and sleek custom styles crafted with precision.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦2,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Wig Installation -->
+      <div class="service-item wigs bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="200">
+        <!-- Changed to aspect-[4/3] and object-top -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="WhatsApp Image 2026-05-20 at 9.45.01 PM.jpeg" alt="Wig Installation" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Wigs</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Wig Installation & Revamp</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Flawless lace melting, custom styling, and professional revamping for a natural, seamless finish.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦10,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Lash Extensions -->
+      <div class="service-item lashes bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="300">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Lash.jpg" alt="Lash Extensions" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Lashes</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Lash Extensions</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Classic, Hybrid, Volume, and Mega Volume sets tailored to enhance your eye shape gracefully.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦12,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Brow Treatments -->
+      <div class="service-item lashes bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="100">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Brow treatment.jpg" alt="Brow Treatments" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Brows</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Precision Brow Styling</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Microblading, ombre shading, and brow lamination designed for perfectly structured, natural brows.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦1,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Nail Styling & Care -->
+      <div class="service-item nails bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="150">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Nail After.jpeg" alt="Nail Styling & Care" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Nails</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Nail Styling & Care</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Spa manicures, pedicures, durable acrylic extensions, and flawless gel polish finishes.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦3,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Spa & Massage -->
+      <div class="service-item spa bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="200">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Spa.jpeg" alt="Spa & Massage" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Spa</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Spa & Massage Therapy</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Swedish and deep tissue massages engineered to release deep muscle tension and restore total calm.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦35,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Facials -->
+      <div class="service-item spa bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-[#C9A96A]/10 group" data-aos="fade-up" data-aos-delay="300">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Facial.jpg" alt="Facial Treatments" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+          <span class="absolute top-4 right-4 bg-[#F9F4EF]/90 backdrop-blur-sm px-3 py-1 text-[11px] font-btn tracking-widest text-[#1F1B1A] uppercase rounded-full">Facial</span>
+        </div>
+        <div class="p-8 space-y-4">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Facial Treatments</h3>
+          <p class="font-sans text-gray-600 text-sm font-light leading-relaxed">Deep cleanse, microneedling, and customized chemical peels tailored for radiant, healthy skin barriers.</p>
+          <div class="pt-4 border-t border-[#C9A96A]/10 flex justify-between items-center">
+            <span class="font-btn text-xs tracking-widest text-[#C9A96A] uppercase font-semibold">From ₦35,000</span>
+            <a href="#booking" class="font-btn text-xs tracking-widest uppercase bg-[#C9A96A] text-[#1F1B1A] px-4 py-2 rounded-btn hover:bg-[#E8D5A3] transition-colors inline-flex items-center gap-1">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="py-24 px-6 md:px-12 lg:px-24 bg-[#1F1B1A] text-white">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">Our Work</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-4 text-[#F9F4EF]">
+        Beauty in <em class="italic text-[#C9A96A]">Every Detail</em>
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4 mb-8"></div>
+      
+      <!-- Gallery Category Filters -->
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs uppercase tracking-widest font-btn">
+        <button onclick="filterGallery('all')" class="gallery-tab-btn active px-5 py-2.5 rounded-full border border-[#C9A96A] bg-[#C9A96A] text-[#1F1B1A] transition-all duration-300">All Work</button>
+        <button onclick="filterGallery('hair')" class="gallery-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#F9F4EF] hover:border-[#C9A96A] transition-all duration-300">Hair & Braids</button>
+        <button onclick="filterGallery('wigs')" class="gallery-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#F9F4EF] hover:border-[#C9A96A] transition-all duration-300">Wigs</button>
+        <button onclick="filterGallery('lashes')" class="gallery-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#F9F4EF] hover:border-[#C9A96A] transition-all duration-300">Lashes & Brows</button>
+        <button onclick="filterGallery('nails')" class="gallery-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#F9F4EF] hover:border-[#C9A96A] transition-all duration-300">Nails</button>
+        <button onclick="filterGallery('spa')" class="gallery-tab-btn px-5 py-2.5 rounded-full border border-[#C9A96A]/40 text-[#F9F4EF] hover:border-[#C9A96A] transition-all duration-300">Spa & Facials</button>
+      </div>
+    </div>
+
+    <!-- Editorial Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+      
+      <!-- ================= HAIR & BRAIDS (Add multiple cards here) ================= -->
+      <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid1.jpeg" alt="Hair Styling 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Hair Styling</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Silk Press & Styling</p>
+        </div>
+      </div>
+
+      <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid2.jpeg" alt="Hair Styling 2" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Knotless Braids</p>
+        </div>
+      </div>
+
+      <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid7.jpeg" alt="Hair Styling 3" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Ghana Weaving</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Classic Patterns</p>
+        </div>
+      </div>
+
+
+      <!-- ================= WIGS (Add multiple cards here) ================= -->
+      <div class="gallery-card wigs relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid3.jpeg" alt="Wig Install 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Wig Install</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Frontal Melt</p>
+        </div>
+      </div>
+
+      <div class="gallery-card wigs relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid8.jpeg" alt="Wig Install 2" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Wig Revamp</span>
+          <p class="font-serif text-xl text-F9F4EF">Custom Styling</p>
+        </div>
+      </div>
+
+
+      <!-- ================= LASHES & BROWS (Add multiple cards here) ================= -->
+      <div class="gallery-card lashes relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid4.jpeg" alt="Lashes 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Lashes</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Volume Set</p>
+        </div>
+      </div>
+
+
+      <!-- ================= NAILS (Add multiple cards here) ================= -->
+      <div class="gallery-card nails relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid5.jpeg" alt="Nails 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Nails</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Acrylic Extensions</p>
+        </div>
+      </div>
+
+
+      <!-- ================= SPA & FACIALS (Add multiple cards here) ================= -->
+      <div class="gallery-card spa relative overflow-hidden rounded-[18px] h-80 group cursor-pointer shadow-lg" data-aos="zoom-in">
+        <img src="grid6.jpeg" alt="Spa 1" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Spa & Massage</span>
+          <p class="font-serif text-xl text-[#F9F4EF]">Relaxation Room</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Instagram CTA Footer -->
+    <div class="text-center mt-12" data-aos="fade-up">
+      <a href="https://instagram.com/derfinibeauty" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 border border-[#C9A96A] text-[#C9A96A] font-btn text-xs tracking-widest uppercase rounded-btn hover:bg-[#C9A96A] hover:text-[#1F1B1A] transition-all duration-300">
+        Follow Instagram @derfinibeauty
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Gallery Filter JavaScript -->
+<script>
+  function filterGallery(category) {
+    const buttons = document.querySelectorAll('.gallery-tab-btn');
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-[#C9A96A]', 'text-[#1F1B1A]');
+      btn.classList.add('border-[#C9A96A]/40', 'text-[#F9F4EF]');
+    });
+    event.target.classList.remove('border-[#C9A96A]/40', 'text-[#F9F4EF]');
+    event.target.classList.add('bg-[#C9A96A]', 'text-[#1F1B1A]');
+
+    const cards = document.querySelectorAll('.gallery-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.classList.contains(category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<!-- BEFORE & AFTER TRANSFORMATIONS -->
+<section id="transformations" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F9F4EF] text-[#1F1B1A]">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">Real Results</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-wide mb-4">
+        The <em class="italic text-[#C9A96A]">Derfini Effect</em>
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4 mb-6"></div>
+      <p class="font-sans text-gray-600 text-sm md:text-base max-w-lg mx-auto font-light leading-relaxed">
+        Seeing is believing. Drag the sliders below to explore real transformations and the beauty of expert craftsmanship.
+      </p>
+    </div>
+    
+    <!-- 3-Column Interactive Slider Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      <!-- Card 1: Facial Treatment -->
+      <div class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="relative w-full h-[350px] rounded-[18px] overflow-hidden shadow-lg border border-[#C9A96A]/10 select-none">
+          
+          <!-- After Image (Background) -->
+          <img src="Before (2).jpeg" alt="After Facial" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          
+          <!-- Before Image (Clipped via inline style updated by range input) -->
+          <img src="Before (1).jpeg" alt="Before Facial" id="before-img-1" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" />
+          
+          <!-- Invisible Range Input for Dragging -->
+          <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0" 
+            oninput="document.getElementById('before-img-1').style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`; document.getElementById('slider-line-1').style.left = `${this.value}%`;">
+          
+          <!-- Custom Slider Line & Handle -->
+          <div id="slider-line-1" class="absolute top-0 bottom-0 w-[2px] bg-white z-20 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.3)]" style="left: 50%;">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100">
+              <!-- Lucide Expand Icons (Left/Right) -->
+              <svg class="w-5 h-5 stroke-[#1F1B1A]" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+            </div>
+          </div>
+          
+          <!-- Badges -->
+          <span class="absolute top-4 left-4 bg-[#1F1B1A]/80 backdrop-blur-md text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full z-10 pointer-events-none">Before</span>
+          <span class="absolute top-4 right-4 bg-[#C9A96A] text-[#1F1B1A] px-3 py-1 text-[10px] tracking-widest uppercase font-semibold rounded-full z-10 pointer-events-none">After</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Facial Treatment</h3>
+          <p class="font-sans text-xs text-[#C9A96A] tracking-widest uppercase mt-1">Skin Rejuvenation</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Wig Install -->
+      <div class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative w-full h-[350px] rounded-[18px] overflow-hidden shadow-lg border border-[#C9A96A]/10 select-none">
+          <img src="After Wig.jpeg" alt="After Wig" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src="Before Wig.PNG" alt="Before Wig" id="before-img-2" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" />
+          
+          <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0" 
+            oninput="document.getElementById('before-img-2').style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`; document.getElementById('slider-line-2').style.left = `${this.value}%`;">
+          
+          <div id="slider-line-2" class="absolute top-0 bottom-0 w-[2px] bg-white z-20 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.3)]" style="left: 50%;">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100">
+              <svg class="w-5 h-5 stroke-[#1F1B1A]" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+            </div>
+          </div>
+          
+          <span class="absolute top-4 left-4 bg-[#1F1B1A]/80 backdrop-blur-md text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full z-10 pointer-events-none">Before</span>
+          <span class="absolute top-4 right-4 bg-[#C9A96A] text-[#1F1B1A] px-3 py-1 text-[10px] tracking-widest uppercase font-semibold rounded-full z-10 pointer-events-none">After</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Wig Install</h3>
+          <p class="font-sans text-xs text-[#C9A96A] tracking-widest uppercase mt-1">Flawless Lace Melt</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Nail Transformation -->
+      <div class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative w-full h-[350px] rounded-[18px] overflow-hidden shadow-lg border border-[#C9A96A]/10 select-none">
+          <img src="Nail After.jpeg" alt="After Nails" class="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+          <img src="Nail Before.jpeg" alt="Before Nails" id="before-img-3" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" />
+          
+          <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 m-0" 
+            oninput="document.getElementById('before-img-3').style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`; document.getElementById('slider-line-3').style.left = `${this.value}%`;">
+          
+          <div id="slider-line-3" class="absolute top-0 bottom-0 w-[2px] bg-white z-20 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.3)]" style="left: 50%;">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-100">
+              <svg class="w-5 h-5 stroke-[#1F1B1A]" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+            </div>
+          </div>
+          
+          <span class="absolute top-4 left-4 bg-[#1F1B1A]/80 backdrop-blur-md text-white px-3 py-1 text-[10px] tracking-widest uppercase rounded-full z-10 pointer-events-none">Before</span>
+          <span class="absolute top-4 right-4 bg-[#C9A96A] text-[#1F1B1A] px-3 py-1 text-[10px] tracking-widest uppercase font-semibold rounded-full z-10 pointer-events-none">After</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-serif text-2xl font-light text-[#1F1B1A]">Nail Transformation</h3>
+          <p class="font-sans text-xs text-[#C9A96A] tracking-widest uppercase mt-1">Acrylic Extensions</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section id="pricing" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F1E6DA]">
+  <div class="max-w-[90rem] mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block"></span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[#1F1B1A] tracking-wide mb-4">
+        Prices<em class="italic text-[#C9A96A]"></em>
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4 mb-6"></div>
+      <p class="font-sans text-gray-700 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        Whether you're looking for a quick refresh or a luxurious escape, we offer a complete range of premium treatments tailored to your needs.
+      </p>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+
+      <!-- Card 1: Natural Hair & Treatments -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="0">
+        <!-- Changed to aspect-[4/3] and object-top -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="grid1.jpeg" alt="Natural Hair Care" class="w-full h-full object-cover object-top">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Hair & Treatments</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Hair Retouching</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦4,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Retouching + Relaxer</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦7,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Blow Dry / Straightening</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦5,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Trimming</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦5,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Corn Rows (Max 15)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦8,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Mini Corn Rows</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Finger Coils / Mini Twists</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Natural Twist / Flat Twist</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Deep Conditioning</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦25,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Hot Oil Treatment</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Itchy/Dandruff Treatment</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: Braids & Cornrows -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="100">
+        <!-- Changed to aspect-[4/3] and object-top -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="grid2.jpeg" alt="Braids" class="w-full h-full object-cover object-top">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Braids</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Knotless (Short)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦12,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Knotless (Medium)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦18,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Knotless (Long)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦20k - ₦25k+</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Ghana Weaving (Big)</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Ghana Weaving (Medium)</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Ghana Weaving (Small)</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦20,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Big / Box Braids</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Mini Braids</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦25,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Boho Braids / Weaving+</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Kinky Twist (Short-Med)</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦8,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Stitch Braids</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦8,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3: Extensions & Wigs -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="200">
+        <!-- Changed to aspect-[4/3] and object-top -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="grid3.jpeg" alt="Wigs and Extensions" class="w-full h-full object-cover object-top">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Extensions & Wigs</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Frontal Installation</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦30,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Sew-in (Weavon)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦20,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Hair Wigging / Revamp</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Styling / Ponytail</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Layering</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Extension Loosening (Weave)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦4,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Extension Loosening (Braids)</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦8,500</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Cornrow Loosening</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦4,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 4: Lashes & Brows -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="0">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Brow treatment.jpg" alt="Lashes & Brows" class="w-full h-full object-cover object-center">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Lashes & Brows</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <h4 class="text-[10px] font-btn tracking-widest text-[#C9A96A] uppercase mb-1 mt-2">Lashes</h4>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Classic Set</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦12,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Hybrid Set</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Volume / Mega Volume</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦18k - ₦23k</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Lash Refilling / Cat Eye</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦3,000</span>
+            </li>
+            
+            <h4 class="text-[10px] font-btn tracking-widest text-[#C9A96A] uppercase mb-1 mt-6">Brows</h4>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Combo Brows</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦40,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Brow Lamination / Retouching</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦20,000+</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Micro Shading / Ombre</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦30,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Micro Blading / Strokes</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦35,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Natural Brow Shaving</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦1,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 5: Spa & Facials -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="100">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Spa.jpeg" alt="Spa Treatments" class="w-full h-full object-cover object-center">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Spa & Facials</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Deep Cleansing Facial</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦40,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Oxygen Facial / Dermaplaning</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦45,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Skin Revive (Collagen)</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦65,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Microneedling</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦85,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Chemical Peel</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦150k - ₦350k</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Swedish Massage</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦35,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Deep Tissue Massage</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦40,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 6: Nail Studio -->
+      <div class="bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-500" data-aos="fade-up" data-aos-delay="200">
+        <!-- Changed to aspect-[4/3] and object-center -->
+        <div class="relative w-full aspect-[4/3] overflow-hidden">
+          <img src="Nail After.jpeg" alt="Nail Studio" class="w-full h-full object-cover object-center">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full">
+            <span class="text-[10px] font-btn tracking-widest text-[#1F1B1A] uppercase font-semibold">Nail Studio</span>
+          </div>
+        </div>
+        <div class="p-6 lg:p-8">
+          <ul class="space-y-1">
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Gel Polish</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦3,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Acrylic</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">French Tips</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦5,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Pedicure</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦15,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Manicure</p>
+              <span class="font-serif text-base text-[#C9A96A]">₦10,000</span>
+            </li>
+            <li class="flex justify-between items-center py-2 border-b border-[#C9A96A]/10 last:border-0">
+              <p class="font-sans text-[13px] font-medium text-[#1F1B1A]">Nail Art</p>
+              <span class="font-serif text-base text-[#C9A96A]">From ₦2,000</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Action Button -->
+    <div class="text-center mt-16">
+      <a href="#booking" class="inline-flex items-center justify-center px-8 py-4 bg-[#1F1B1A] text-[#F9F4EF] font-btn text-xs tracking-widest uppercase rounded-full hover:bg-[#C9A96A] hover:text-[#1F1B1A] transition-all duration-300 shadow-md">
+        Book Your Session
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section id="booking" class="py-24 px-6 md:px-12 lg:px-24 bg-[#1F1B1A]">
+  <div class="max-w-6xl mx-auto" data-aos="fade-up">
+    
+    <!-- Split Layout Card -->
+    <div class="bg-[#F9F4EF] rounded-[24px] overflow-hidden flex flex-col lg:flex-row shadow-2xl">
+      
+      <!-- Left Side: Hero Image -->
+      <div class="lg:w-5/12 relative h-80 lg:h-auto hidden md:block">
+        <!-- Replace with your preferred Spa/Booking image -->
+        <img src="Spa.jpeg" alt="Spa Booking" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/60 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8 text-white">
+          <p class="font-serif text-3xl font-light mb-2">Your Sanctuary Awaits</p>
+          <p class="font-sans text-sm font-light opacity-90">Step into a world of refined beauty and intentional care.</p>
+        </div>
+      </div>
+
+      <!-- Right Side: Booking Form -->
+      <div class="lg:w-7/12 p-8 md:p-12 lg:p-16">
+        
+        <div class="text-center md:text-left mb-10">
+          <h2 class="font-serif text-4xl md:text-5xl font-light text-[#1F1B1A] mb-3">
+            Book an Appointment
+          </h2>
+          <p class="font-sans text-gray-600 text-sm font-light">
+            Fill out the details below to reserve your session.
+          </p>
+        </div>
+
+        <div class="space-y-5">
+          <!-- Name Input -->
+          <div>
+            <input type="text" id="book-name" placeholder="Your Full Name" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-[#1F1B1A] placeholder-gray-500 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all">
+          </div>
+
+          <!-- Contact Inputs (2 Columns) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <input type="tel" id="book-phone" placeholder="Your Phone Number" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-[#1F1B1A] placeholder-gray-500 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all">
+            <input type="email" id="book-email" placeholder="Your Email (Optional)" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-[#1F1B1A] placeholder-gray-500 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all">
+          </div>
+
+          <!-- Service Dropdown -->
+          <div>
+            <select id="book-service" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-gray-700 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all appearance-none cursor-pointer">
+              <option value="" disabled selected>Choose a Service</option>
+              <option value="Hair Care & Treatments">Hair Care & Treatments</option>
+              <option value="Braids & Weaving">Braids & Weaving</option>
+              <option value="Wigs & Extensions">Wigs & Extensions</option>
+              <option value="Lash Extensions">Lash Extensions</option>
+              <option value="Brow Treatments">Brow Treatments</option>
+              <option value="Nail Studio">Nail Studio</option>
+              <option value="Spa & Massage">Spa & Massage</option>
+              <option value="Facial Treatments">Facial Treatments</option>
+            </select>
+          </div>
+
+          <!-- Date & Time (2 Columns) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <input type="date" id="book-date" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-gray-700 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all cursor-pointer">
+            
+            <select id="book-time" class="w-full bg-transparent border border-[#1F1B1A]/20 rounded-full px-6 py-4 text-sm text-gray-700 focus:outline-none focus:border-[#C9A96A] focus:ring-1 focus:ring-[#C9A96A] transition-all appearance-none cursor-pointer">
+              <option value="" disabled selected>Select Time</option>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="01:00 PM">01:00 PM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="03:00 PM">03:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+              <option value="05:00 PM">05:00 PM</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button onclick="submitBooking()" class="w-full bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-widest uppercase font-semibold rounded-full py-4 hover:bg-[#1F1B1A] hover:text-[#C9A96A] transition-all duration-300 shadow-md">
+              Book Online
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Booking Script -->
+<script>
+  function submitBooking() {
+    const name = document.getElementById('book-name').value;
+    const phone = document.getElementById('book-phone').value;
+    const service = document.getElementById('book-service').value;
+    const date = document.getElementById('book-date').value;
+    const time = document.getElementById('book-time').value;
+
+    if (!name || !phone || !service || !date || !time) { 
+      alert('Please fill in all required fields (Name, Phone, Service, Date, and Time).'); 
+      return; 
+    }
+
+    const msg = encodeURIComponent(`Hi Derfini Beauty! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${date}\nTime: ${time}`);
+    window.open(`https://wa.me/2348101357204?text=${msg}`, '_blank');
+  }
+</script>
+
+<!-- CONTACT & LOCATION SECTION -->
+<section id="contact" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F1E6DA]">
+  <div class="max-w-7xl mx-auto" data-aos="fade-up">
+    
+    <!-- Split Layout Card -->
+    <div class="bg-white rounded-[24px] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-500 border border-[#C9A96A]/10 flex flex-col lg:flex-row">
+      
+      <!-- Left Side: Contact Details -->
+      <div class="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+        
+        <div class="mb-12">
+          <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">Get In Touch</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-light text-[#1F1B1A] mb-4">
+            Visit <em class="italic text-[#C9A96A]">Derfini Beauty</em>
+          </h2>
+          <div class="w-12 h-[1px] bg-[#C9A96A]"></div>
+        </div>
+
+        <div class="space-y-10">
+          <!-- Address -->
+          <div>
+            <h3 class="font-btn text-[11px] tracking-[0.2em] uppercase text-[#C9A96A] font-semibold mb-2">Address</h3>
+            <p class="font-sans text-sm md:text-base text-gray-700 font-light leading-relaxed">
+              151 Jakpa Road, Opposite the New Coca Cola Depot<br>
+              Effurun, Warri, Delta State
+            </p>
+          </div>
+
+          <!-- Phone & WhatsApp -->
+          <div>
+            <h3 class="font-btn text-[11px] tracking-[0.2em] uppercase text-[#C9A96A] font-semibold mb-2">Phone / WhatsApp</h3>
+            <div class="space-y-1">
+              <p class="font-sans text-sm md:text-base text-gray-700 font-light">08101357204</p>
+              <p class="font-sans text-sm md:text-base text-gray-700 font-light">08066593638</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div>
+            <h3 class="font-btn text-[11px] tracking-[0.2em] uppercase text-[#C9A96A] font-semibold mb-2">Opening Hours</h3>
+            <p class="font-sans text-sm md:text-base text-gray-700 font-light mb-1">Monday – Saturday</p>
+            <p class="font-sans text-sm md:text-base text-[#1F1B1A] font-medium">9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Right Side: Live Google Map -->
+      <div class="lg:w-1/2 min-h-[400px] lg:min-h-full relative bg-gray-200">
+        <!-- Note: The grayscale filter keeps the map looking luxurious. Remove 'filter grayscale' if you want full color -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.082721838612!2d5.7656!3d5.5567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzMnMjQuMSJOIDXCsDQ1JzU2LjIiRQ!5e0!3m2!1sen!2sng!4v1690000000000!5m2!1sen!2sng" 
+          class="absolute inset-0 w-full h-full border-0 filter grayscale contrast-125 opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bg-[#F9F4EF] text-[#1F1B1A] pt-20 pb-8 px-6 md:px-12 lg:px-24">
+  <div class="max-w-[90rem] mx-auto">
+    
+    <!-- Top Section: Newsletter -->
+    <div class="max-w-2xl mx-auto text-center pb-16">
+      <h4 class="font-btn text-[10px] tracking-[0.25em] uppercase text-[#C9A96A] font-semibold mb-4">Subscribe to our newsletter</h4>
+      <p class="font-sans text-xs text-gray-600 mb-8 font-light">Sign up for email updates on the latest treatments and offers from Derfini Beauty.</p>
+      
+      <form class="max-w-sm mx-auto">
+        <input type="email" placeholder="Enter Your Email" class="w-full bg-transparent border-b border-[#1F1B1A]/20 pb-3 text-center text-sm text-[#1F1B1A] placeholder-gray-400 focus:outline-none focus:border-[#C9A96A] transition-colors rounded-none">
+        <p class="font-sans text-[9px] text-gray-400 mt-4 tracking-wide">By signing up, you accept the terms of Derfini Beauty's Privacy Policy.</p>
+      </form>
+    </div>
+
+    <!-- Middle Section: Brand & Navigation Links -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 border-t border-[#1F1B1A]/10">
+      
+      <!-- Brand Logo / Name -->
+      <div class="lg:col-span-5 flex items-start justify-center lg:justify-start mb-8 lg:mb-0">
+        <h2 class="font-serif text-2xl tracking-[0.15em] uppercase text-[#1F1B1A] font-light">Derfini Beauty</h2>
+      </div>
+      
+      <!-- Links Grid -->
+      <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10 text-center md:text-left">
+        
+        <!-- Column 1 -->
+        <div>
+          <h4 class="font-btn text-[10px] tracking-[0.2em] uppercase text-[#1F1B1A] font-semibold mb-6">The Salon</h4>
+          <ul class="space-y-4 font-sans text-[11px] tracking-wide text-gray-500">
+            <li><a href="#about" class="hover:text-[#C9A96A] transition-colors">About Us</a></li>
+            <li><a href="#services" class="hover:text-[#C9A96A] transition-colors">Services</a></li>
+            <li><a href="#gallery" class="hover:text-[#C9A96A] transition-colors">Gallery</a></li>
+            <li><a href="#pricing" class="hover:text-[#C9A96A] transition-colors">Pricing Menu</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 2 -->
+        <div>
+          <h4 class="font-btn text-[10px] tracking-[0.2em] uppercase text-[#1F1B1A] font-semibold mb-6">Customer Hub</h4>
+          <ul class="space-y-4 font-sans text-[11px] tracking-wide text-gray-500">
+            <li><a href="#contact" class="hover:text-[#C9A96A] transition-colors">Location</a></li>
+            <li><a href="#booking" class="hover:text-[#C9A96A] transition-colors">Book Appointment</a></li>
+            <li><a href="#" class="hover:text-[#C9A96A] transition-colors">Cancellation Policy</a></li>
+            <li><a href="#contact" class="hover:text-[#C9A96A] transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3 -->
+        <div>
+          <h4 class="font-btn text-[10px] tracking-[0.2em] uppercase text-[#1F1B1A] font-semibold mb-6">Follow Us</h4>
+          <ul class="space-y-4 font-sans text-[11px] tracking-wide text-gray-500">
+            <li><a href="https://instagram.com/derfinibeauty" target="_blank" class="hover:text-[#C9A96A] transition-colors">Instagram</a></li>
+            <li><a href="#" class="hover:text-[#C9A96A] transition-colors">Facebook</a></li>
+            <li><a href="https://wa.me/2348101357204" target="_blank" class="hover:text-[#C9A96A] transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section: Copyright & Location -->
+    <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[#1F1B1A]/10">
+      <p class="font-btn text-[9px] tracking-[0.2em] uppercase text-gray-400 mb-4 md:mb-0">
+        &copy; 2026 Derfini Beauty. All Rights Reserved.
+      </p>
+      <p class="font-btn text-[9px] tracking-[0.2em] uppercase text-gray-400">
+        Warri, Delta State
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Mobile Menu Drawer Toggle Script -->
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+      menu.classList.toggle('translate-x-full');
+    }
+  }
+</script>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2348101357204?text=Hi%20Derfini%20Beauty!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="wa-float w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-400 transition-all hover:scale-110">
+  <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- BACK TO TOP -->
+<button onclick="scrollToTop()" id="backTop" class="back-top w-10 h-10 bg-gold/80 hover:bg-gold rounded-full flex items-center justify-center shadow-lg transition-all">
+  <svg class="w-4 h-4 stroke-dark-bg fill-none stroke-2" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// Init AOS
+AOS.init({ duration: 800, once: true, offset: 80 });
+
+// Loader
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1200);
+});
+
+// Scroll progress and Navbar logic
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 50) { 
+    navbar.classList.add('scrolled', 'py-4');
+    navbar.classList.remove('py-6');
+  } else { 
+    navbar.classList.remove('scrolled', 'py-4'); 
+    navbar.classList.add('py-6');
+  }
+  const backTop = document.getElementById('backTop');
+  if (window.scrollY > 400) { backTop.classList.add('visible'); } else { backTop.classList.remove('visible'); }
+});
+
+// Mobile menu
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+
+// Back to top
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// Services Filter Tab Logic
+function filterServices(category) {
+  const buttons = document.querySelectorAll('.service-tab-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('bg-[#C9A96A]', 'text-[#1F1B1A]');
+    btn.classList.add('border-[#C9A96A]/40', 'text-[#1F1B1A]');
+  });
+  event.target.classList.remove('border-[#C9A96A]/40');
+  event.target.classList.add('bg-[#C9A96A]', 'text-[#1F1B1A]');
+
+  const items = document.querySelectorAll('.service-item');
+  items.forEach(item => {
+    if (category === 'all' || item.classList.contains(category)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Pricing tabs
+function showTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+  document.getElementById('content-' + tabId).classList.remove('hidden');
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('bg-gold', 'text-dark-bg');
+    btn.classList.add('text-gold');
+  });
+  event.target.classList.add('bg-gold', 'text-dark-bg');
+}
+
+// Booking form submission
+function submitBooking() {
+  const name = document.querySelector('input[placeholder="Your name"]').value;
+  const phone = document.querySelector('input[placeholder="08XXXXXXXXX"]').value;
+  const service = document.querySelector('select[name="service"]').value;
+  if (!name || !phone || !service) { alert('Please fill in your name, phone, and select a service.'); return; }
+  const msg = encodeURIComponent(`Hi Derfini Beauty! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}`);
+  window.open(`https://wa.me/2348101357204?text=${msg}`, '_blank');
+}
+</script>
+</body>
+</html>
