@@ -239,60 +239,50 @@ tailwind.config = {
 <!-- HERO SECTION -->
 <section id="home" class="relative h-screen w-full flex items-center overflow-hidden bg-[#1F1B1A]">
   
-  <!-- Full-Screen Hero Background Slideshow -->
-  <div id="hero-slideshow" class="absolute inset-0 w-full h-full pointer-events-none">
-    <!-- Slide 1: Spa Sanctuary & Atmosphere -->
-    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10" data-index="0">
-      <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
-    </div>
-    <!-- Slide 2: Hair Styling & Natural Twists -->
-    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="1">
-      <img src="Images/Hairs/Natural Hair Twist.jpeg" alt="Hair Care and Styling at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
-    </div>
-    <!-- Slide 3: Nail Studio Artistry -->
-    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="2">
-      <img src="Images/Nails/Nails.jpeg" alt="Nail Studio Extensions at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
-    </div>
-    <!-- Slide 4: Wig & Frontal Installation Glamour -->
-    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="3">
-      <img src="Images/Hairs/Bouncy frontal installation.jpeg" alt="Wig Installation at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
-    </div>
+  <!-- Full-Bleed Original Hero Image with Slow 18s Ken Burns Animation -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+    <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-[center_30%] md:object-center transform scale-100 transition-transform duration-[18000ms] ease-in-out hero-ken-burns" />
   </div>
 
-  <!-- Sophisticated Dark Gradient Overlay (Darker left for text legibility, right retains image vibrancy) -->
-  <div class="absolute inset-0 bg-gradient-to-r from-[#1F1B1A]/95 via-[#1F1B1A]/70 to-[#1F1B1A]/25 z-10 pointer-events-none"></div>
+  <!-- Layered Premium Luxury Overlays -->
+  <div class="absolute inset-0 bg-[#1F1B1A]/20 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-[#1F1B1A]/95 via-[#1F1B1A]/70 to-transparent pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/60 via-transparent to-transparent pointer-events-none"></div>
 
   <!-- Hero Content Container -->
   <div class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-20">
     <div class="max-w-2xl text-center md:text-left">
       
-      <!-- Eyebrow text -->
-      <span class="block text-[#C9A96A] font-btn text-xs md:text-sm tracking-[0.3em] uppercase mb-4 opacity-0 animate-fade-in-up" style="animation-delay: 200ms; animation-fill-mode: forwards;">
-        WARRI'S PREMIER BEAUTY DESTINATION
-      </span>
+      <!-- Thin Gold Line & Eyebrow -->
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-4 opacity-0 animate-fade-in-up" style="animation-delay: 200ms; animation-fill-mode: forwards;">
+        <span class="w-8 h-[1px] bg-[#C9A96A]"></span>
+        <span class="text-[#C9A96A] font-btn text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
+          WARRI'S PREMIER BEAUTY DESTINATION
+        </span>
+      </div>
       
       <!-- Main Headline -->
       <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] mb-6 tracking-wide opacity-0 animate-fade-in-up" style="animation-delay: 400ms; animation-fill-mode: forwards;">
         Refined Beauty,<br />
-        <em class="text-[#C9A96A] italic font-serif">Elevated Experience.</em>
+        <em class="text-[#C9A96A] italic font-serif">Elevated</em> Experience.
       </h1>
       
-      <!-- Shortened Supporting Paragraph -->
+      <!-- Supporting Text -->
       <p class="font-sans text-white/90 text-base md:text-lg font-light leading-relaxed mb-8 max-w-lg mx-auto md:mx-0 opacity-0 animate-fade-in-up" style="animation-delay: 600ms; animation-fill-mode: forwards;">
-        Premium hair, beauty and spa treatments designed to make you look and feel your best.
+        Experience premium beauty treatments tailored to enhance your confidence, style and natural beauty.
       </p>
       
       <!-- Call-To-Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-10 opacity-0 animate-fade-in-up" style="animation-delay: 800ms; animation-fill-mode: forwards;">
         <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-[0.15em] uppercase font-semibold rounded-full hover:bg-[#E8D5A3] hover:-translate-y-1 transition-all duration-300 text-center shadow-lg">
-          BOOK APPOINTMENT
+          Book Appointment
         </a>
         <a href="#services" class="w-full sm:w-auto px-8 py-4 border border-[#C9A96A] text-[#C9A96A] font-btn text-xs tracking-[0.15em] uppercase font-semibold rounded-full hover:bg-[#C9A96A] hover:text-[#1F1B1A] hover:-translate-y-1 transition-all duration-300 text-center bg-transparent">
-          EXPLORE SERVICES
+          Explore Services
         </a>
       </div>
 
-      <!-- Service Strip -->
+      <!-- Service Indicator Strip -->
       <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-[11px] font-btn tracking-[0.25em] text-white/80 uppercase opacity-0 animate-fade-in-up" style="animation-delay: 1000ms; animation-fill-mode: forwards;">
         <span>HAIR</span>
         <span class="text-[#C9A96A]">•</span>
@@ -310,10 +300,13 @@ tailwind.config = {
     </div>
   </div>
   
-  <!-- Animated Vertical Scroll Indicator -->
-  <div id="hero-scroll-indicator" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20 transition-opacity duration-500 pointer-events-none">
-    <span class="text-[10px] font-btn tracking-[0.3em] uppercase text-white/70">SCROLL</span>
-    <div class="w-[1px] h-10 bg-[#C9A96A] animate-pulse"></div>
+  <!-- Minimal Luxury Scroll Indicator -->
+  <div id="hero-scroll-indicator" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 z-20 transition-opacity duration-500 pointer-events-none opacity-80">
+    <span class="text-[9px] font-btn tracking-[0.3em] uppercase text-white/70">SCROLL</span>
+    <span class="w-[1px] h-6 bg-[#C9A96A]/80 animate-pulse"></span>
+    <svg class="w-3 h-3 text-[#C9A96A] animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
   </div>
 </section>
 
@@ -1724,6 +1717,213 @@ tailwind.config = {
   });
 </script>
 
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="py-24 px-6 md:px-12 lg:px-24 bg-[#F9F4EF] overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12 lg:mb-16" data-aos="fade-up">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#C9A96A] font-semibold mb-3 block">Client Love</span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[#1F1B1A] tracking-wide mb-4">
+        What Our Clients Say
+      </h2>
+      <div class="w-16 h-[1px] bg-[#C9A96A] mx-auto mt-4 mb-4"></div>
+      <p class="font-sans text-gray-700 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        Real experiences. Beautiful transformations.
+      </p>
+    </div>
+
+    <!-- Testimonials Carousel / Grid Container -->
+    <div class="relative">
+      
+      <!-- Testimonials Grid (Desktop 3 Columns, Mobile 1 Slide Horizontal Scroll) -->
+      <div id="testimonials-track" class="flex md:grid md:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 transition-all">
+        
+        <!-- TESTIMONIAL 1: Yvonne Avan-Nomayo -->
+        <div class="testimonial-card flex-none w-full md:w-auto snap-center bg-white rounded-[24px] p-8 lg:p-10 shadow-md border border-[#C9A96A]/15 flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <!-- Header: Portrait & Star Rating -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#C9A96A]/40 shadow-sm flex-shrink-0 bg-[#1F1B1A]">
+                <img src="Images/Yvonne.webp" alt="Yvonne Avan-Nomayo" class="w-full h-full object-cover object-center" />
+              </div>
+              <div>
+                <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Yvonne Avan-Nomayo</h3>
+                <span class="text-[11px] font-btn tracking-widest text-[#C9A96A] uppercase font-semibold block">Hair Styling</span>
+                <!-- 5 Gold Stars -->
+                <div class="flex gap-1 text-[#C9A96A] text-xs mt-1" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quotation Symbol & Full Testimonial Text -->
+            <div class="relative">
+              <span class="font-serif text-5xl text-[#C9A96A]/20 absolute -top-4 -left-2 leading-none pointer-events-none">“</span>
+              <p class="font-sans text-gray-700 text-sm font-light leading-relaxed relative z-10 pt-2">
+                "I thoroughly enjoyed my experience at Derfini Hair Salon. It's always a relaxing experience from the reception, to the diligence of the staff in the discharge of their service and finally meeting your desired expectation. My nails came out as I wanted it and my hair was given the care and attention it needed. I will absolutely recommend Derfini salon."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTIMONIAL 2: Rachael Negedu -->
+        <div class="testimonial-card flex-none w-full md:w-auto snap-center bg-white rounded-[24px] p-8 lg:p-10 shadow-md border border-[#C9A96A]/15 flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <!-- Header: Portrait & Star Rating -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#C9A96A]/40 shadow-sm flex-shrink-0 bg-[#1F1B1A]">
+                <img src="Images/Rachael.png" alt="Rachael Negedu" class="w-full h-full object-cover object-center" />
+              </div>
+              <div>
+                <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Rachael Negedu</h3>
+                <span class="text-[11px] font-btn tracking-widest text-[#C9A96A] uppercase font-semibold block">Braids</span>
+                <!-- 5 Gold Stars -->
+                <div class="flex gap-1 text-[#C9A96A] text-xs mt-1" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quotation Symbol & Testimonial Text -->
+            <div class="relative">
+              <span class="font-serif text-5xl text-[#C9A96A]/20 absolute -top-4 -left-2 leading-none pointer-events-none">“</span>
+              <p class="font-sans text-gray-700 text-sm font-light leading-relaxed relative z-10 pt-2">
+                "My experience at Derfini has been wonderful. The services there is top notch."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TESTIMONIAL 3: Carina Negedu -->
+        <div class="testimonial-card flex-none w-full md:w-auto snap-center bg-white rounded-[24px] p-8 lg:p-10 shadow-md border border-[#C9A96A]/15 flex flex-col justify-between transition-all duration-500 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <!-- Header: Portrait & Star Rating -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#C9A96A]/40 shadow-sm flex-shrink-0 bg-[#1F1B1A]">
+                <img src="Images/Carina.png" alt="Carina Negedu" class="w-full h-full object-cover object-center" />
+              </div>
+              <div>
+                <h3 class="font-serif text-xl font-medium text-[#1F1B1A]">Carina Negedu</h3>
+                <span class="text-[11px] font-btn tracking-widest text-[#C9A96A] uppercase font-semibold block">Hair Styling</span>
+                <!-- 5 Gold Stars -->
+                <div class="flex gap-1 text-[#C9A96A] text-xs mt-1" aria-label="5 out of 5 stars">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quotation Symbol & Testimonial Text -->
+            <div class="relative">
+              <span class="font-serif text-5xl text-[#C9A96A]/20 absolute -top-4 -left-2 leading-none pointer-events-none">“</span>
+              <p class="font-sans text-gray-700 text-sm font-light leading-relaxed relative z-10 pt-2">
+                "Derfini had my frontal slayed!!! The professionalism, environment, service, and overall experience were 10/10. I’m super happy with the result and will definitely be back. Highly recommend!"
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile Pagination Dots & Controls (Hidden on desktop) -->
+      <div class="flex md:hidden items-center justify-center gap-3 mt-6">
+        <button id="testimonial-prev" aria-label="Previous Testimonial" class="p-2 text-[#1F1B1A] hover:text-[#C9A96A] transition-colors focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="flex gap-2">
+          <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#C9A96A] transition-all" aria-label="Slide 1"></button>
+          <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#C9A96A]/30 transition-all" aria-label="Slide 2"></button>
+          <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#C9A96A]/30 transition-all" aria-label="Slide 3"></button>
+        </div>
+        <button id="testimonial-next" aria-label="Next Testimonial" class="p-2 text-[#1F1B1A] hover:text-[#C9A96A] transition-colors focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Booking CTA Banner -->
+    <div class="mt-16 lg:mt-20 text-center bg-white rounded-[24px] p-8 md:p-12 shadow-sm border border-[#C9A96A]/20 max-w-3xl mx-auto" data-aos="fade-up">
+      <h3 class="font-serif text-2xl md:text-3xl font-light text-[#1F1B1A] mb-3">
+        Ready for Your Transformation?
+      </h3>
+      <p class="font-sans text-gray-600 text-xs md:text-sm font-light leading-relaxed mb-6">
+        Book your appointment today and let our specialists craft your bespoke beauty experience.
+      </p>
+      <a href="#booking" class="inline-block px-8 py-4 bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-widest uppercase font-semibold rounded-full hover:bg-[#1F1B1A] hover:text-[#C9A96A] transition-all duration-300 shadow-md">
+        Book Your Appointment
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials Mobile Carousel JavaScript Controller -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('testimonials-track');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+    
+    if (!cards.length) return;
+
+    let currentIndex = 0;
+    let autoPlayInterval = null;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateCarousel(index) {
+      currentIndex = (index + cards.length) % cards.length;
+      const cardWidth = cards[0].offsetWidth + 24; // Card width + gap
+      track.scrollTo({
+        left: cardWidth * currentIndex,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.remove('bg-[#C9A96A]/30');
+          dot.classList.add('bg-[#C9A96A]');
+        } else {
+          dot.classList.remove('bg-[#C9A96A]');
+          dot.classList.add('bg-[#C9A96A]/30');
+        }
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => updateCarousel(idx));
+    });
+
+    // Auto-rotate on mobile screens (< 768px)
+    function startAutoPlay() {
+      if (window.innerWidth >= 768 || prefersReducedMotion) return;
+      stopAutoPlay();
+      autoPlayInterval = setInterval(() => {
+        updateCarousel(currentIndex + 1);
+      }, 6000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+    }
+
+    track.addEventListener('touchstart', stopAutoPlay, { passive: true });
+    track.addEventListener('touchend', startAutoPlay, { passive: true });
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
+
+    window.addEventListener('resize', startAutoPlay);
+    startAutoPlay();
+  });
+</script>
+
 <!-- BOOKING SECTION -->
 <section id="booking" class="py-24 px-6 md:px-12 lg:px-24 bg-[#1F1B1A]">
   <div class="max-w-6xl mx-auto" data-aos="fade-up">
@@ -2123,51 +2323,26 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Full-Screen Hero Automatic Slideshow (6.5s interval crossfade + Ken Burns)
+// Hero Ken Burns Animation Loop (18s slow scale loop for original hero image)
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('#hero-slideshow .hero-slide');
-  if (slides.length === 0) return;
+  const heroImg = document.querySelector('.hero-ken-burns');
+  if (!heroImg) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
-  let currentSlide = 0;
-
-  function playKenBurns(slide) {
-    const img = slide.querySelector('.hero-slide-img');
-    if (img) {
-      img.style.transition = 'transform 7000ms ease-out';
-      img.style.transform = 'scale(1.05)';
-    }
+  function runKenBurnsLoop() {
+    heroImg.style.transition = 'transform 18000ms ease-in-out';
+    heroImg.style.transform = 'scale(1.05)';
+    
+    setTimeout(() => {
+      heroImg.style.transition = 'transform 18000ms ease-in-out';
+      heroImg.style.transform = 'scale(1.00)';
+    }, 18000);
   }
 
-  function resetKenBurns(slide) {
-    const img = slide.querySelector('.hero-slide-img');
-    if (img) {
-      img.style.transition = 'none';
-      img.style.transform = 'scale(1)';
-    }
-  }
-
-  // Initial slide zoom
-  playKenBurns(slides[0]);
-
-  setInterval(() => {
-    const nextSlide = (currentSlide + 1) % slides.length;
-
-    // Crossfade: Hide current slide
-    slides[currentSlide].classList.remove('opacity-100', 'z-10');
-    slides[currentSlide].classList.add('opacity-0', 'z-0');
-
-    // Crossfade: Show next slide
-    slides[nextSlide].classList.remove('opacity-0', 'z-0');
-    slides[nextSlide].classList.add('opacity-100', 'z-10');
-
-    resetKenBurns(slides[currentSlide]);
-    playKenBurns(slides[nextSlide]);
-
-    currentSlide = nextSlide;
-  }, 6500);
+  runKenBurnsLoop();
+  setInterval(runKenBurnsLoop, 36000);
 });
 
 // Mobile menu
