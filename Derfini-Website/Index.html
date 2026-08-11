@@ -240,9 +240,21 @@ tailwind.config = {
 <!-- HERO SECTION -->
 <section id="home" class="relative h-screen w-full flex items-center overflow-hidden bg-[#1F1B1A]">
   
-  <!-- Full-Bleed Original Hero Image with Slow 18s Ken Burns Animation -->
+  <!-- Full-Bleed Hero Video with Poster Image Fallback -->
   <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-    <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-[center_30%] md:object-center transform scale-100 transition-transform duration-[18000ms] ease-in-out hero-ken-burns" />
+    <video 
+      id="hero-video"
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      preload="metadata" 
+      poster="Hero (2).jpeg" 
+      class="w-full h-full object-cover object-center md:object-[center_35%] transition-opacity duration-1000"
+    >
+      <source src="Images/Home section.mp4" type="video/mp4">
+      <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-center" />
+    </video>
   </div>
 
   <!-- Layered Premium Luxury Overlays -->
@@ -768,7 +780,7 @@ tailwind.config = {
           <img src="grid2.jpeg" alt="Seamless Knotless Box Braids" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
             <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
-            <p class="font-serif text-xl text-[#F9F4EF] font-light">Seamless Knotless Box Braids</p>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light">Frontal Installation</p>
           </div>
         </div>
 
@@ -788,13 +800,73 @@ tailwind.config = {
           </div>
         </div>
 
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up" data-aos-delay="250">
+          <img src="Images/Hairs/Braids.jpeg" alt="Knotless Box Braids & Precision Parting" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up" data-aos-delay="300">
+          <img src="Images/Hairs/Braids 3.jpeg" alt="Fulani & Tribal Braids Artistry" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up" data-aos-delay="350">
+          <img src="Images/Hairs/Braids 4.jpeg" alt="Goddess & Bohemian Braids" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up" data-aos-delay="400">
+          <img src="Images/Hairs/Braids 5.jpeg" alt="Custom Cornrows & Braid Patterns" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braids</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
+        <!-- Braid Video 1 -->
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/20" data-aos="fade-up" data-aos-delay="450">
+          <video autoplay loop muted playsinline preload="none" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <source src="Images/Hairs/Braids 2.mp4" type="video/mp4">
+          </video>
+          <div class="absolute top-4 right-4 bg-[#1F1B1A]/80 backdrop-blur-sm px-3 py-1 text-[10px] font-btn tracking-widest text-[#C9A96A] uppercase rounded-full border border-[#C9A96A]/30 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#C9A96A] animate-pulse"></span> Video
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braid Studio</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
+        <!-- Braid Video 2 -->
+        <div class="gallery-card hair relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/20" data-aos="fade-up" data-aos-delay="500">
+          <video autoplay loop muted playsinline preload="none" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            <source src="Images/Hairs/Braids 7.mp4" type="video/mp4">
+          </video>
+          <div class="absolute top-4 right-4 bg-[#1F1B1A]/80 backdrop-blur-sm px-3 py-1 text-[10px] font-btn tracking-widest text-[#C9A96A] uppercase rounded-full border border-[#C9A96A]/30 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#C9A96A] animate-pulse"></span> Video
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Braid Artistry</span>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light"></p>
+          </div>
+        </div>
+
 
         <!-- ================= 2. WIGS (5 Photos | 0 Videos) ================= -->
         <div class="gallery-card wigs relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up">
           <img src="Images/Hairs/Bouncy frontal installation.jpeg" alt="Bouncy Frontal Installation & Melt" loading="lazy" class="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
             <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Wig Installation</span>
-            <p class="font-serif text-xl text-[#F9F4EF] font-light">Bouncy Frontal Installation & Melt</p>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light">Frontal Installation</p>
           </div>
         </div>
 
@@ -907,7 +979,7 @@ tailwind.config = {
           <img src="Images/Nails/Nails 7.jpeg" alt="Custom Metallic Chrome Nail Art" loading="lazy" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
             <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Nail Design</span>
-            <p class="font-serif text-xl text-[#F9F4EF] font-light">Custom Metallic Chrome Nail Art</p>
+            <p class="font-serif text-xl text-[#F9F4EF] font-light">Custom Ombre Nail Art</p>
           </div>
         </div>
 
@@ -2351,26 +2423,23 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Hero Ken Burns Animation Loop (18s slow scale loop for original hero image)
+// Hero Video Autoplay & Reduced Motion Controller
 document.addEventListener('DOMContentLoaded', () => {
-  const heroImg = document.querySelector('.hero-ken-burns');
-  if (!heroImg) return;
+  const heroVideo = document.getElementById('hero-video');
+  if (!heroVideo) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  function runKenBurnsLoop() {
-    heroImg.style.transition = 'transform 18000ms ease-in-out';
-    heroImg.style.transform = 'scale(1.05)';
-    
-    setTimeout(() => {
-      heroImg.style.transition = 'transform 18000ms ease-in-out';
-      heroImg.style.transform = 'scale(1.00)';
-    }, 18000);
+  if (prefersReducedMotion) {
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+  } else {
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked by browser policy; static fallback poster image (Hero (2).jpeg) remains visible.
+      });
+    }
   }
-
-  runKenBurnsLoop();
-  setInterval(runKenBurnsLoop, 36000);
 });
 
 // Mobile menu
