@@ -157,10 +157,11 @@ tailwind.config = {
   ::-webkit-scrollbar-track { background: #FAF6F0; }
   ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 2px; }
 
-  /* Loading */
-  #loader { position: fixed; inset: 0; background: #0F0E0C; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s; }
+  /* Loading Screen */
+  #loader { position: fixed; inset: 0; background: #0F0E0C; z-index: 10000; display: flex; align-items: center; justify-content: center; transition: opacity 0.35s ease-out; }
   #loader.hidden { opacity: 0; pointer-events: none; }
-  .loader-logo { animation: fadeInUp 0.8s ease forwards; }
+  @keyframes loaderFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .loader-logo { animation: loaderFadeIn 0.3s ease-out forwards; }
 
   /* Section titles */
   .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: #C9A84C; }
@@ -943,15 +944,6 @@ tailwind.config = {
           <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
             <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Nail Craft</span>
             <p class="font-serif text-xl text-[#F9F4EF] font-light">High-Shine Gel Polish Finish</p>
-          </div>
-        </div>
-
-        <!-- Pedicure Care -->
-        <div class="gallery-card nails relative overflow-hidden rounded-[18px] h-80 md:h-[380px] group cursor-pointer shadow-lg border border-[#C9A96A]/10" data-aos="fade-up" data-aos-delay="350">
-          <img src="Images/Nails/Pedicure.jpeg" alt="Luxury Spa Pedicure & Foot Care" loading="lazy" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#1F1B1A]/90 via-[#1F1B1A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-            <span class="text-xs uppercase tracking-widest text-[#C9A96A] font-btn">Pedicure</span>
-            <p class="font-serif text-xl text-[#F9F4EF] font-light">Luxury Spa Pedicure & Foot Care</p>
           </div>
         </div>
 
@@ -2298,10 +2290,37 @@ tailwind.config = {
 // Init AOS
 AOS.init({ duration: 800, once: true, offset: 80 });
 
-// Loader
-window.addEventListener('load', () => {
-  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1200);
+// Fast & Elegant Derfini Logo Loader Controller (700-900ms Total Intro)
+let loaderDismissed = false;
+function dismissLoader() {
+  if (loaderDismissed) return;
+  loaderDismissed = true;
+
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.classList.add('hidden');
+  }
+
+  // Refresh AOS layout offsets after loader fade-out completes
+  setTimeout(() => {
+    if (typeof AOS !== 'undefined' && AOS.refresh) {
+      AOS.refresh();
+    }
+  }, 350);
+}
+
+// Trigger smooth dismissal at ~500ms on DOMContentLoaded (700-850ms total intro)
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(dismissLoader, 500);
 });
+
+// Secondary trigger on window load (with brief 200ms delay)
+window.addEventListener('load', () => {
+  setTimeout(dismissLoader, 200);
+});
+
+// Absolute safety timeout cap: 1.5 seconds maximum under any network condition
+setTimeout(dismissLoader, 1500);
 
 // Scroll progress, Navbar sticky background, & Scroll indicator fade
 window.addEventListener('scroll', () => {
