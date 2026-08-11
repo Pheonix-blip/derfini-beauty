@@ -98,6 +98,15 @@ tailwind.config = {
   .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #C9A84C; transition: width 0.3s; }
   .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
+  /* Hero Staggered Entrance Animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
   /* Hero Animations */
   .fade-up-enter { opacity: 0; transform: translateY(40px); animation: fadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
   .delay-100 { animation-delay: 0.1s; }
@@ -197,7 +206,7 @@ tailwind.config = {
 </div>
 
 <!-- NAVBAR -->
-<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between">
+<nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 flex items-center justify-between transition-all duration-500">
   <!-- Logo & Text -->
   <div class="flex items-center gap-3">
     <img src="derfini-logo.png" alt="Derfini Beauty Logo" class="h-10 w-10 object-contain">
@@ -209,57 +218,102 @@ tailwind.config = {
 
   <!-- Desktop Links -->
   <div class="hidden md:flex items-center gap-6">
-    <a href="#home" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Home</a>
-    <a href="#about" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">About</a>
-    <a href="#services" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Services</a>
-    <a href="#gallery" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Gallery</a>
-    <a href="#pricing" class="nav-link text-white hover:text-gold text-sm tracking-widest uppercase">Pricing</a>
-    <a href="#booking" class="bg-gold text-dark-bg font-btn font-medium px-6 py-2 ml-6 rounded-btn hover:bg-gold-light transition-colors uppercase tracking-widest text-sm shadow-sm">
+    <a href="#home" class="nav-link text-white hover:text-[#C9A96A] text-xs font-btn tracking-widest uppercase transition-colors">Home</a>
+    <a href="#about" class="nav-link text-white hover:text-[#C9A96A] text-xs font-btn tracking-widest uppercase transition-colors">About</a>
+    <a href="#services" class="nav-link text-white hover:text-[#C9A96A] text-xs font-btn tracking-widest uppercase transition-colors">Services</a>
+    <a href="#gallery" class="nav-link text-white hover:text-[#C9A96A] text-xs font-btn tracking-widest uppercase transition-colors">Gallery</a>
+    <a href="#pricing" class="nav-link text-white hover:text-[#C9A96A] text-xs font-btn tracking-widest uppercase transition-colors">Pricing</a>
+    <a href="#booking" class="bg-[#C9A96A] text-[#1F1B1A] font-btn font-semibold px-6 py-2.5 ml-4 rounded-full hover:bg-white transition-all uppercase tracking-widest text-xs shadow-md">
       BOOK NOW
     </a>
   </div>
 
   <!-- Mobile Hamburger Icon -->
-<button type="button" onclick="toggleMobileMenu()" class="absolute right-6 top-6 focus:outline-none md:hidden text-white">
-  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-  </svg>
-</button>
+  <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" class="absolute right-6 top-5 focus:outline-none md:hidden text-white hover:text-[#C9A96A] transition-colors">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
 </nav>
 
 <!-- HERO SECTION -->
-<section id="home" class="relative h-screen w-full flex items-center overflow-hidden bg-derfini-charcoal">
-  <div class="absolute inset-0 w-full h-full">
-      <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-center animate-slow-zoom" />
-      <div class="absolute inset-0 bg-gradient-to-r from-derfini-charcoal/95 via-derfini-charcoal/70 to-derfini-charcoal/30"></div>
+<section id="home" class="relative h-screen w-full flex items-center overflow-hidden bg-[#1F1B1A]">
+  
+  <!-- Full-Screen Hero Background Slideshow -->
+  <div id="hero-slideshow" class="absolute inset-0 w-full h-full pointer-events-none">
+    <!-- Slide 1: Spa Sanctuary & Atmosphere -->
+    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 z-10" data-index="0">
+      <img src="Hero (2).jpeg" alt="Luxury Spa Room at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
+    </div>
+    <!-- Slide 2: Hair Styling & Natural Twists -->
+    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="1">
+      <img src="Images/Hairs/Natural Hair Twist.jpeg" alt="Hair Care and Styling at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
+    </div>
+    <!-- Slide 3: Nail Studio Artistry -->
+    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="2">
+      <img src="Images/Nails/Nails.jpeg" alt="Nail Studio Extensions at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
+    </div>
+    <!-- Slide 4: Wig & Frontal Installation Glamour -->
+    <div class="hero-slide absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-index="3">
+      <img src="Images/Hairs/Bouncy frontal installation.jpeg" alt="Wig Installation at Derfini Beauty" class="w-full h-full object-cover object-center hero-slide-img" />
+    </div>
   </div>
 
-  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-12 pt-20">
-      <div class="max-w-2xl text-center md:text-left">
-          <span class="block text-gold font-btn text-xs md:text-sm tracking-[0.2em] uppercase mb-6 fade-up-enter">
-              Warri's Premier Beauty Destination
-          </span>
-          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] mb-6 tracking-wide">
-              <span class="block fade-up-enter delay-100">Refined Beauty,</span>
-              <span class="block fade-up-enter delay-200"><em class="text-gold italic">Elevated</em> Experience.</span>
-          </h1>
-          <p class="font-poppins text-white/90 text-base md:text-lg font-light leading-relaxed mb-10 max-w-lg mx-auto md:mx-0 fade-up-enter delay-300">
-              Experience premium treatments tailored to enhance your confidence and style in a relaxing, elegant environment.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center fade-up-enter delay-400">
-              <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-gold text-dark-bg font-btn text-[15px] rounded-btn hover:bg-gold-light transition-all duration-300 text-center shadow-md">
-                  Book Appointment
-              </a>
-              <a href="#services" class="w-full sm:w-auto px-8 py-4 border border-gold text-gold font-btn text-[15px] rounded-btn hover:bg-gold hover:text-dark-bg transition-all duration-300 text-center bg-transparent">
-                  Explore Services
-              </a>
-          </div>
+  <!-- Sophisticated Dark Gradient Overlay (Darker left for text legibility, right retains image vibrancy) -->
+  <div class="absolute inset-0 bg-gradient-to-r from-[#1F1B1A]/95 via-[#1F1B1A]/70 to-[#1F1B1A]/25 z-10 pointer-events-none"></div>
+
+  <!-- Hero Content Container -->
+  <div class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-20">
+    <div class="max-w-2xl text-center md:text-left">
+      
+      <!-- Eyebrow text -->
+      <span class="block text-[#C9A96A] font-btn text-xs md:text-sm tracking-[0.3em] uppercase mb-4 opacity-0 animate-fade-in-up" style="animation-delay: 200ms; animation-fill-mode: forwards;">
+        WARRI'S PREMIER BEAUTY DESTINATION
+      </span>
+      
+      <!-- Main Headline -->
+      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] mb-6 tracking-wide opacity-0 animate-fade-in-up" style="animation-delay: 400ms; animation-fill-mode: forwards;">
+        Refined Beauty,<br />
+        <em class="text-[#C9A96A] italic font-serif">Elevated Experience.</em>
+      </h1>
+      
+      <!-- Shortened Supporting Paragraph -->
+      <p class="font-sans text-white/90 text-base md:text-lg font-light leading-relaxed mb-8 max-w-lg mx-auto md:mx-0 opacity-0 animate-fade-in-up" style="animation-delay: 600ms; animation-fill-mode: forwards;">
+        Premium hair, beauty and spa treatments designed to make you look and feel your best.
+      </p>
+      
+      <!-- Call-To-Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-10 opacity-0 animate-fade-in-up" style="animation-delay: 800ms; animation-fill-mode: forwards;">
+        <a href="#booking" class="w-full sm:w-auto px-8 py-4 bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-[0.15em] uppercase font-semibold rounded-full hover:bg-[#E8D5A3] hover:-translate-y-1 transition-all duration-300 text-center shadow-lg">
+          BOOK APPOINTMENT
+        </a>
+        <a href="#services" class="w-full sm:w-auto px-8 py-4 border border-[#C9A96A] text-[#C9A96A] font-btn text-xs tracking-[0.15em] uppercase font-semibold rounded-full hover:bg-[#C9A96A] hover:text-[#1F1B1A] hover:-translate-y-1 transition-all duration-300 text-center bg-transparent">
+          EXPLORE SERVICES
+        </a>
       </div>
+
+      <!-- Service Strip -->
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-[11px] font-btn tracking-[0.25em] text-white/80 uppercase opacity-0 animate-fade-in-up" style="animation-delay: 1000ms; animation-fill-mode: forwards;">
+        <span>HAIR</span>
+        <span class="text-[#C9A96A]">•</span>
+        <span>WIGS</span>
+        <span class="text-[#C9A96A]">•</span>
+        <span>NAILS</span>
+        <span class="text-[#C9A96A]">•</span>
+        <span>LASHES</span>
+        <span class="text-[#C9A96A]">•</span>
+        <span>SPA</span>
+        <span class="text-[#C9A96A]">•</span>
+        <span>FACIALS</span>
+      </div>
+
+    </div>
   </div>
   
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 fade-up-enter delay-400">
-      <span class="text-[11px] tracking-widest uppercase font-btn text-white/60">Scroll</span>
-      <div class="w-[1px] h-10 bg-gradient-to-b from-gold to-transparent"></div>
+  <!-- Animated Vertical Scroll Indicator -->
+  <div id="hero-scroll-indicator" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20 transition-opacity duration-500 pointer-events-none">
+    <span class="text-[10px] font-btn tracking-[0.3em] uppercase text-white/70">SCROLL</span>
+    <div class="w-[1px] h-10 bg-[#C9A96A] animate-pulse"></div>
   </div>
 </section>
 
@@ -1395,7 +1449,7 @@ tailwind.config = {
               </li>
               <li class="pricing-row flex justify-between items-center py-2.5">
                 <span class="font-sans text-sm font-medium text-[#1F1B1A]">Natural Twist / Flat Twist</span>
-                <span class="font-serif text-base md:text-lg text-[#C9A96A] font-light">From ₦10,000</span>
+                <span class="font-serif text-base md:text-lg text-[#C9A96A] font-light">₦10,000</span>
               </li>
               <li class="pricing-row flex justify-between items-center py-2.5">
                 <span class="font-sans text-sm font-medium text-[#1F1B1A]">Deep Conditioning</span>
@@ -1448,7 +1502,7 @@ tailwind.config = {
           { name: 'Corn Rows (Max 15)', price: '₦8,000' },
           { name: 'Mini Corn Rows', price: '₦15,000' },
           { name: 'Finger Coils / Mini Twists', price: '₦15,000' },
-          { name: 'Natural Twist / Flat Twist', price: 'From ₦10,000' },
+          { name: 'Natural Twist / Flat Twist', price: '₦10,000' },
           { name: 'Deep Conditioning', price: '₦25,000' },
           { name: 'Hot Oil Treatment', price: '₦10,000' },
           { name: 'Itchy/Dandruff Treatment', price: '₦15,000' }
@@ -1462,14 +1516,14 @@ tailwind.config = {
           { name: 'Knotless (Short)', price: '₦12,000' },
           { name: 'Knotless (Medium)', price: '₦18,000' },
           { name: 'Knotless (Long)', price: '₦20k - ₦25k+' },
-          { name: 'Ghana Weaving (Big)', price: 'From ₦10,000' },
-          { name: 'Ghana Weaving (Medium)', price: 'From ₦15,000' },
-          { name: 'Ghana Weaving (Small)', price: 'From ₦20,000' },
+          { name: 'Ghana Weaving (Big)', price: '₦10,000' },
+          { name: 'Ghana Weaving (Medium)', price: '₦15,000' },
+          { name: 'Ghana Weaving (Small)', price: '₦20,000' },
           { name: 'Big / Box Braids', price: '₦15,000' },
           { name: 'Mini Braids', price: 'From ₦25,000' },
           { name: 'Boho Braids / Weaving+', price: '₦15,000' },
-          { name: 'Kinky Twist (Short-Med)', price: 'From ₦8,000' },
-          { name: 'Stitch Braids', price: 'From ₦8,000' }
+          { name: 'Kinky Twist (Short-Med)', price: '₦8,000' },
+          { name: 'Stitch Braids', price: '₦8,000' }
         ]
       },
       'extensions-wigs': {
@@ -1477,14 +1531,14 @@ tailwind.config = {
         badge: 'Extensions & Wigs',
         img: 'Images/Hairs/Bouncy frontal installation.jpeg',
         services: [
-          { name: 'Frontal Installation', price: 'From ₦30,000' },
+          { name: 'Frontal Installation', price: '₦30,000' },
           { name: 'Sew-in (Weavon)', price: '₦20,000' },
-          { name: 'Hair Wigging / Revamp', price: 'From ₦10,000' },
-          { name: 'Styling / Ponytail', price: 'From ₦10,000' },
-          { name: 'Layering', price: 'From ₦15,000' },
+          { name: 'Hair Wigging / Revamp', price: '₦10,000' },
+          { name: 'Styling / Ponytail', price: '₦10,000' },
+          { name: 'Layering', price: '₦15,000' },
           { name: 'Extension Loosening (Weave)', price: '₦4,000' },
-          { name: 'Extension Loosening (Braids)', price: 'From ₦8,500' },
-          { name: 'Cornrow Loosening', price: 'From ₦4,000' }
+          { name: 'Extension Loosening (Braids)', price: '₦8,500' },
+          { name: 'Cornrow Loosening', price: '₦4,000' }
         ]
       },
       'lashes-brows': {
@@ -1498,7 +1552,7 @@ tailwind.config = {
               { name: 'Classic Set', price: '₦12,000' },
               { name: 'Hybrid Set', price: '₦15,000' },
               { name: 'Volume / Mega Volume', price: '₦18k - ₦23k' },
-              { name: 'Lash Refilling / Cat Eye', price: 'From ₦3,000' }
+              { name: 'Lash Refilling / Cat Eye', price: '₦3,000' }
             ]
           },
           {
@@ -1533,11 +1587,11 @@ tailwind.config = {
         img: 'Images/Nails/Nails.jpeg',
         services: [
           { name: 'Gel Polish', price: '₦3,000' },
-          { name: 'Acrylic', price: 'From ₦10,000' },
-          { name: 'French Tips', price: 'From ₦5,000' },
+          { name: 'Acrylic', price: '₦10,000' },
+          { name: 'French Tips', price: '₦5,000' },
           { name: 'Pedicure', price: '₦15,000' },
           { name: 'Manicure', price: '₦10,000' },
-          { name: 'Nail Art', price: 'From ₦2,000' }
+          { name: 'Nail Art', price: '₦2,000' }
         ]
       }
     };
@@ -1745,9 +1799,12 @@ tailwind.config = {
             </select>
           </div>
 
+          <!-- Feedback Message Container -->
+          <div id="booking-feedback" class="hidden text-center text-xs font-sans py-3 px-4 rounded-full transition-all duration-300"></div>
+
           <!-- Submit Button -->
-          <div class="pt-4">
-            <button onclick="submitBooking()" class="w-full bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-widest uppercase font-semibold rounded-full py-4 hover:bg-[#1F1B1A] hover:text-[#C9A96A] transition-all duration-300 shadow-md">
+          <div class="pt-2">
+            <button id="book-submit-btn" onclick="submitBooking()" class="w-full bg-[#C9A96A] text-[#1F1B1A] font-btn text-xs tracking-widest uppercase font-semibold rounded-full py-4 hover:bg-[#1F1B1A] hover:text-[#C9A96A] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-md">
               Book Online
             </button>
           </div>
@@ -1761,20 +1818,114 @@ tailwind.config = {
 
 <!-- Booking Script -->
 <script>
-  function submitBooking() {
-    const name = document.getElementById('book-name').value;
-    const phone = document.getElementById('book-phone').value;
-    const service = document.getElementById('book-service').value;
-    const date = document.getElementById('book-date').value;
-    const time = document.getElementById('book-time').value;
+  function selectBookingService(serviceCategory) {
+    const selectEl = document.getElementById('book-service');
+    if (!selectEl) return;
+    const searchVal = serviceCategory.toLowerCase().trim();
+    for (let i = 0; i < selectEl.options.length; i++) {
+      const optVal = selectEl.options[i].value.toLowerCase();
+      if (optVal && (optVal.includes(searchVal) || searchVal.includes(optVal))) {
+        selectEl.selectedIndex = i;
+        break;
+      }
+    }
+  }
 
-    if (!name || !phone || !service || !date || !time) { 
-      alert('Please fill in all required fields (Name, Phone, Service, Date, and Time).'); 
-      return; 
+  function submitBooking() {
+    const nameEl = document.getElementById('book-name');
+    const phoneEl = document.getElementById('book-phone');
+    const emailEl = document.getElementById('book-email');
+    const serviceEl = document.getElementById('book-service');
+    const dateEl = document.getElementById('book-date');
+    const timeEl = document.getElementById('book-time');
+    const btnEl = document.getElementById('book-submit-btn');
+    const feedbackEl = document.getElementById('booking-feedback');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const service = serviceEl ? serviceEl.value : '';
+    const date = dateEl ? dateEl.value : '';
+    const time = timeEl ? timeEl.value : '';
+
+    function showFeedback(msg, isError) {
+      if (!feedbackEl) return;
+      feedbackEl.classList.remove('hidden', 'bg-red-50', 'text-red-700', 'border-red-200', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-200');
+      if (isError) {
+        feedbackEl.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+      } else {
+        feedbackEl.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+      }
+      feedbackEl.textContent = msg;
     }
 
-    const msg = encodeURIComponent(`Hi Derfini Beauty! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${date}\nTime: ${time}`);
-    window.open(`https://wa.me/2348101357204?text=${msg}`, '_blank');
+    // Input Validation
+    if (!name) {
+      showFeedback('Please enter your full name.', true);
+      if (nameEl) nameEl.focus();
+      return;
+    }
+    if (!phone) {
+      showFeedback('Please enter a valid phone number.', true);
+      if (phoneEl) phoneEl.focus();
+      return;
+    }
+    // Flexible Nigerian / International Phone Validation
+    const cleanPhone = phone.replace(/[\s\-\(\)\+]/g, '');
+    if (cleanPhone.length < 10 || !/^\d+$/.test(cleanPhone)) {
+      showFeedback('Please enter a valid phone number (at least 10 digits).', true);
+      if (phoneEl) phoneEl.focus();
+      return;
+    }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showFeedback('Please enter a valid email address or leave it blank.', true);
+      if (emailEl) emailEl.focus();
+      return;
+    }
+    if (!service) {
+      showFeedback('Please select a service from the dropdown.', true);
+      if (serviceEl) serviceEl.focus();
+      return;
+    }
+    if (!date) {
+      showFeedback('Please select your preferred appointment date.', true);
+      if (dateEl) dateEl.focus();
+      return;
+    }
+    if (!time) {
+      showFeedback('Please select your preferred time slot.', true);
+      if (timeEl) timeEl.focus();
+      return;
+    }
+
+    // Processing State & Feedback
+    if (btnEl) {
+      btnEl.disabled = true;
+      btnEl.innerHTML = 'Submitting Booking...';
+    }
+    showFeedback('Preparing your booking request...', false);
+
+    // Construct WhatsApp message
+    let msgText = `Hi Derfini Beauty! I'd like to book an appointment.\n\n`;
+    msgText += `• Name: ${name}\n`;
+    msgText += `• Phone: ${phone}\n`;
+    if (email) msgText += `• Email: ${email}\n`;
+    msgText += `• Service: ${service}\n`;
+    msgText += `• Date: ${date}\n`;
+    msgText += `• Time: ${time}`;
+
+    const waUrl = `https://wa.me/2348101357204?text=${encodeURIComponent(msgText)}`;
+
+    // Dispatch WhatsApp booking
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+      showFeedback('Booking request generated! Redirecting to WhatsApp to confirm your appointment.', false);
+      
+      if (btnEl) {
+        btnEl.disabled = false;
+        btnEl.innerHTML = 'Book Online';
+      }
+    }, 400);
   }
 </script>
 
@@ -1943,20 +2094,80 @@ window.addEventListener('load', () => {
   setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1200);
 });
 
-// Scroll progress and Navbar logic
+// Scroll progress, Navbar sticky background, & Scroll indicator fade
 window.addEventListener('scroll', () => {
   const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-  document.getElementById('progress-bar').style.width = scrolled + '%';
+  const progressBar = document.getElementById('progress-bar');
+  if (progressBar) progressBar.style.width = scrolled + '%';
+  
   const navbar = document.getElementById('navbar');
-  if (window.scrollY > 50) { 
-    navbar.classList.add('scrolled', 'py-4');
-    navbar.classList.remove('py-6');
+  const scrollIndicator = document.getElementById('hero-scroll-indicator');
+  
+  if (window.scrollY > 60) { 
+    if (navbar) {
+      navbar.classList.add('bg-[#1F1B1A]/95', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'border-b', 'border-[#C9A96A]/20');
+      navbar.classList.remove('py-4', 'bg-transparent');
+    }
+    if (scrollIndicator) scrollIndicator.style.opacity = '0';
   } else { 
-    navbar.classList.remove('scrolled', 'py-4'); 
-    navbar.classList.add('py-6');
+    if (navbar) {
+      navbar.classList.remove('bg-[#1F1B1A]/95', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'border-b', 'border-[#C9A96A]/20');
+      navbar.classList.add('py-4');
+    }
+    if (scrollIndicator) scrollIndicator.style.opacity = '1';
   }
+  
   const backTop = document.getElementById('backTop');
-  if (window.scrollY > 400) { backTop.classList.add('visible'); } else { backTop.classList.remove('visible'); }
+  if (backTop) {
+    if (window.scrollY > 400) { backTop.classList.add('visible'); } else { backTop.classList.remove('visible'); }
+  }
+});
+
+// Full-Screen Hero Automatic Slideshow (6.5s interval crossfade + Ken Burns)
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('#hero-slideshow .hero-slide');
+  if (slides.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  let currentSlide = 0;
+
+  function playKenBurns(slide) {
+    const img = slide.querySelector('.hero-slide-img');
+    if (img) {
+      img.style.transition = 'transform 7000ms ease-out';
+      img.style.transform = 'scale(1.05)';
+    }
+  }
+
+  function resetKenBurns(slide) {
+    const img = slide.querySelector('.hero-slide-img');
+    if (img) {
+      img.style.transition = 'none';
+      img.style.transform = 'scale(1)';
+    }
+  }
+
+  // Initial slide zoom
+  playKenBurns(slides[0]);
+
+  setInterval(() => {
+    const nextSlide = (currentSlide + 1) % slides.length;
+
+    // Crossfade: Hide current slide
+    slides[currentSlide].classList.remove('opacity-100', 'z-10');
+    slides[currentSlide].classList.add('opacity-0', 'z-0');
+
+    // Crossfade: Show next slide
+    slides[nextSlide].classList.remove('opacity-0', 'z-0');
+    slides[nextSlide].classList.add('opacity-100', 'z-10');
+
+    resetKenBurns(slides[currentSlide]);
+    playKenBurns(slides[nextSlide]);
+
+    currentSlide = nextSlide;
+  }, 6500);
 });
 
 // Mobile menu
@@ -1994,16 +2205,6 @@ function showTab(tabId) {
     btn.classList.add('text-gold');
   });
   event.target.classList.add('bg-gold', 'text-dark-bg');
-}
-
-// Booking form submission
-function submitBooking() {
-  const name = document.querySelector('input[placeholder="Your name"]').value;
-  const phone = document.querySelector('input[placeholder="08XXXXXXXXX"]').value;
-  const service = document.querySelector('select[name="service"]').value;
-  if (!name || !phone || !service) { alert('Please fill in your name, phone, and select a service.'); return; }
-  const msg = encodeURIComponent(`Hi Derfini Beauty! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}`);
-  window.open(`https://wa.me/2348101357204?text=${msg}`, '_blank');
 }
 </script>
 </body>
